@@ -156,14 +156,16 @@ For detailed hardware specifications and register maps, refer to the following o
 * **[SoC-Based Early Fault Detector](https://link.springer.com/chapter/10.1007/978-981-97-8476-9_26)**: Development of SoC-Based Early Fault Detector System for Induction Motors.
 * **[Adaptive Protection](https://arxiv.org/pdf/2308.15917)**: On-Chip Sensors Data Collection and Analysis for
 SoC Health Management.
-### AI-Assisted Workflow
+### AI-Assisted Workflow & Queries
 - Design understanding and architecture planning
 - RTL debugging and refinement
 - Documentation structuring
-* **[How can I design a Smart Power Fault Analyzer SoC for real-time monitoring?](https://chatgpt.com/c/69b99075-96c0-8324-91ed-80040d785bbe)**: A digital instrument designed to monitor, detect, and diagnose abnormalities in electrical systems in real time.
-* **[Comparison with Traditional Methods](https://www.google.com/search?sourceid=chrome&ie=UTF-8&amc=1&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCzI2MzI2NWowajMzqAIGsAIB&oq=smart+power+fault+analyzer+&aep=26&cud=0&qsubts=1774077276685&source=chrome.crn.obic&mtid=LXK5ae-uJq_jseMPt5DIiQg&udm=50&mstk=AUtExfCQOAU0FJd76G0wceVjs3lYZgZDLBDH20uBdGQ-Q9c0K4jlwo16JJ6TFQBaN6j_2w8VRk6MsLESNSLDGPncxSGNuIKPguPVU58X5bw2AvnL-BsUZTgUnc9WpHgNYAFzVw0lVKRu2SgBlhZmuJVl6iHaOBjSF8r-7SKNJvwjB3Upr13AohVUxf719vEyt1c97yaoFF6qrA4EP57bsxv2EklqcaCfNGSVLEw_arrTeNH4WOVJUvH7EJtxv3DpIl06-K9Hb5DBbuw6_Q&csuir=1&q=Problem+Statement+Modern+embedded+and+SoC-based+systems+require+stable+power+supply+for+proper+operation.+However%2C+issues+such+as+over-voltage%2C+under-voltage%2C+and+sudden+current+spikes+can+damage+the+system+or+reduce+reliability.+Traditional+fault+detection+systems+have+several+limitations%3A+They+use+fixed+thresholds+and+cannot+be+changed+during+operation.+They+are+not+integrated+with+the+processor%2C+so+decision-making+is+limited.+They+rely+on+external+monitoring+circuits%2C+which+increases+response+time.+Therefore%2C+a+configurable+and+fast+fault+detection+system+integrated+within+the+SoC+is+required.+i+want+to+know+there+is+a+solution+whic+is+made+like+soc%3F&atvm=2)**:  Compare our Proposed Soc with a traditional or old method
-* **[Waveform Debug](https://chatgpt.com/c/69b9765c-bc60-8324-8daf-400bc8c293d0)**: Debug error and Functional verification of fault detection and FSM behavior using GTKWave simulation.
-
+* **How can I design a Smart Power Fault Analyzer SoC for real-time monitoring?**  *Tools used: ChatGPT*\
+  Focus on architecture design, including ADC interfacing, threshold-based fault detection, FSM control, interrupt generation, and SoC integration.
+* **How can I compare a Smart Power Fault Analyzer SoC with traditional fault detection methods?**  *Tools used: Google AI*\
+  Analyze differences in response time, configurability, system integration, hardware efficiency, and real-time performance.
+* **Debug and verify waveform behavior for fault detection systems?**  *Tools used: ChatGPT*\
+  Validate fault triggering, FSM state transitions, buffer control signals, and interrupt generation using GTKWave simulation.
 ---
 ## Project Structure
 
@@ -171,9 +173,9 @@ SoC Health Management.
 |------------------|-------------|
 | [`verilog/rtl/smart_fault_analyzer`](verilog/rtl/smart_fault_analyzer) | RTL source code for Smart Power Fault Analyzer modules (ADC interface, fault detection, FSM, buffer) |
 | [`verilog/rtl/smart_fault_analyzer/tb`](verilog/rtl/smart_fault_analyzer/tb) | Testbench files for functional verification |
-| [`openlane/top_soc/final/gds/`](openlane/top_soc/gds/) | GDSII layout file (`top_soc.gds`) |
-| [`openlane/top_soc/final/lef/`](openlane/top_soc/lef/) | LEF files for layout abstraction |
-| [`openlane/top_soc/final/def/`](openlane/top_soc/def/) | Placement and routing data |
+| [`openlane/top_soc/final/gds`](openlane/top_soc/gds) | GDSII layout file (`top_soc.gds`) |
+| [`openlane/top_soc/final/lef`](openlane/top_soc/lef) | LEF files for layout abstraction |
+| [`openlane/top_soc/final/def`](openlane/top_soc/def) | Placement and routing data |
 | [`verilog/rtl/smart_fault_analyzer/assets`](verilog/rtl/smart_fault_analyzer/assets) | Architecture diagrams, waveform images, and GDS images |
 | [`README.md`](README.md) | Project overview and documentation |
 
