@@ -10,12 +10,7 @@
 //
 /////////////////////////////////////////////////////////////////////////////////
 
-`timescale 1ns / 1ps
 module adc(
-`ifdef USE_POWER_PINS
-    inout vccd1,
-    inout vssd1,
-`endif
     input  wire        clk,
     input  wire        rst,
     input  wire [11:0] adc_sample_in,

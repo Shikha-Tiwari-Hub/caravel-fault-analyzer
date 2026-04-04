@@ -1,0 +1,45 @@
+{
+    "DESIGN_NAME": "top_soc",
+    "FP_PDN_MULTILAYER": false,
+    "VERILOG_FILES": [
+        "dir::../../verilog/rtl/defines.v",
+        "dir::../../verilog/rtl/smart_fault_analyzer/fault_analyzer_regs.v",
+        "dir::../../verilog/rtl/smart_fault_analyzer/adc.v",
+        "dir::../../verilog/rtl/smart_fault_analyzer/fault_detect.v",
+        "dir::../../verilog/rtl/smart_fault_analyzer/top_soc.v"
+    ],
+    "CLOCK_PORT": "wb_clk_i",
+    "CLOCK_PERIOD": 25,
+    "FP_SIZING": "absolute",
+    "DIE_AREA": [0, 0, 300, 300],
+    "VERILOG_DEFINES": ["USE_POWER_PINS"],
+    "MAX_TRANSITION_CONSTRAINT": 1.0,
+    "MAX_FANOUT_CONSTRAINT": 16,
+    "PL_RESIZER_SETUP_SLACK_MARGIN": 0.4,
+    "GRT_RESIZER_SETUP_SLACK_MARGIN": 0.2,
+    "GRT_RESIZER_HOLD_SLACK_MARGIN": 0.2,
+    "PL_RESIZER_HOLD_SLACK_MARGIN": 0.4,
+    "CTS_CLK_MAX_WIRE_LENGTH": 500,
+    "MAGIC_DEF_LABELS": false,
+    "SYNTH_ABC_BUFFERING": false,
+    "RUN_HEURISTIC_DIODE_INSERTION": true,
+    "HEURISTIC_ANTENNA_THRESHOLD": 110,
+    "RUN_ANTENNA_REPAIR": true,
+    "RUN_POST_GRT_DESIGN_REPAIR": true,
+    "RUN_POST_GRT_RESIZER_TIMING": true,
+    "VDD_NETS": ["vccd1"],
+    "GND_NETS": ["vssd1"],
+    "RUN_IRDROP_REPORT": false,
+    "MAGIC_DRC_USE_GDS": true,
+    "DPL_CELL_PADDING": 2,
+    "GPL_CELL_PADDING": 2,
+    "pdk::sky130*": {
+        "RT_MAX_LAYER": "met4",
+        "scl::sky130_fd_sc_hd": {
+            "CLOCK_PERIOD": 25
+        }
+    },
+    "meta": {
+        "version": 2
+    }
+}

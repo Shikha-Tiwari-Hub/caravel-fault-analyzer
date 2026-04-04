@@ -4,76 +4,95 @@
 //
 // Create Date: 28.02.2026 20:28:16
 // Design Name: Top Soc
-// Module Name:  top_soc
+// Module Name: top_soc
 // Project Name: Smart Power Fault Signature Analyzer System-on-Chip
-// Description: Integrates all core modules (ADC interface, fault detection engine, buffer, and FSM)
+// Description: Integrates all core modules (ADC interface, fault detection engine,
+//              buffer, and FSM) into a Caravel-compatible user project top level.
 //
 /////////////////////////////////////////////////////////////////////////////////
 
-`timescale 1ns / 1ps
 module top_soc (
 `ifdef USE_POWER_PINS
-    inout VPWR,  
-    inout VGND,  
+    inout vccd1,    // User area 1 1.8V supply
+    inout vssd1,    // User area 1 digital ground
 `endif
-
-    input  wire clk,
-    input  wire rst,
-    input  wire [11:0] adc_in,
-    input  wire tx_done,        
-    output wire fault_flag,
-    output wire [1:0] fault_type,
-    output wire freeze_buffer,
-    output wire send_data
+    // Wishbone Slave ports (WB MI A)
+    input         wb_clk_i,
+    input         wb_rst_i,
+    input         wbs_cyc_i,
+    input         wbs_stb_i,
+    input         wbs_we_i,
+    input  [3:0]  wbs_sel_i,
+    input  [31:0] wbs_adr_i,
+    input  [31:0] wbs_dat_i,
+    output        wbs_ack_o,
+    output [31:0] wbs_dat_o,
+ 
+    // ADC input from GPIO pads
+    input  [11:0] adc_data_in,
+ 
+    // User maskable interrupt signals
+    output [2:0]  user_irq
 );
-
+ 
+    // Internal wires
+    wire clk = wb_clk_i;
+    wire rst = wb_rst_i;
+ 
+    wire        wb_wr = wbs_we_i & wbs_stb_i & wbs_cyc_i;
+    wire        wb_rd = ~wbs_we_i & wbs_stb_i & wbs_cyc_i;
+ 
     wire [11:0] sample_data;
-    wire read_en_fsm;
-    wire buf_rst_fsm;
-    wire [11:0] buffer_data;
-
-    wire buffer_reset = rst | buf_rst_fsm;
-
-    // 1. ADC Interface
+    wire        fault_flag;
+    wire [1:0]  fault_type;
+    wire [7:0]  fault_flags_bus;
+    wire [15:0] threshold;
+    wire        enable;
+    wire [7:0]  fault_mask;
+    wire        irq;
+ 
+    // ADC sample interface
     adc u_adc (
-        .clk(clk),
-        .rst(rst),
-        .adc_sample_in(adc_in),
-        .sample_out(sample_data)
+        .clk           (clk),
+        .rst           (rst),
+        .adc_sample_in (adc_data_in),
+        .sample_out    (sample_data)
     );
-
-    // 2. Fault Detection
+ 
+    // Fault detection engine
     fault_detect u_fault (
-        .clk(clk),
-        .rst(rst),
-        .sample(sample_data),
-        .fault_flag(fault_flag),
-        .fault_type(fault_type)
+        .clk        (clk),
+        .rst        (rst),
+        .sample     (sample_data),
+        .fault_flag (fault_flag),
+        .fault_type (fault_type)
     );
-
-    // 3. Circular Buffer
-    circular_buffer u_buffer (
-        .clk(clk),
-        .rst(buffer_reset),      
-        .write_en(1'b1),         
-        .data_in(sample_data),
-        .freeze(freeze_buffer),  
-        .read_en(read_en_fsm),   
-        .buffer_out(buffer_data)            
+ 
+    // Pack fault flags bus
+    assign fault_flags_bus = {5'b0, fault_type, fault_flag};
+ 
+    // Extend ADC value to 16 bits for register
+    wire [15:0] adc_value_ext = {4'b0, sample_data};
+ 
+    // Wishbone register file
+    fault_analyzer_regs u_regs (
+        .clk         (clk),
+        .rst_n       (~rst),
+        .wb_addr     (wbs_adr_i[7:0]),
+        .wb_wdata    (wbs_dat_i),
+        .wb_rdata    (wbs_dat_o),
+        .wb_wr       (wb_wr),
+        .wb_rd       (wb_rd),
+        .wb_ack      (wbs_ack_o),
+        .fault_flags (fault_flags_bus),
+        .adc_value   (adc_value_ext),
+        .threshold   (threshold),
+        .enable      (enable),
+        .fault_mask  (fault_mask),
+        .irq         (irq)
     );
-
-    // 4. Event FSM
-    event_fsm u_fsm (
-        .clk(clk),
-        .rst(rst),
-        .fault_flag(fault_flag),
-        .tx_done(tx_done),       
-        .freeze_buffer(freeze_buffer),
-        .send_data(send_data),
-        .read_enable(read_en_fsm),
-        .buf_rst(buf_rst_fsm)
-    );
-
-// Use it in a dummy assignment
-wire [11:0] _unused_buffer = buffer_data; 
+ 
+    // Route IRQ to Caravel user_irq
+    assign user_irq = {2'b0, irq};
+ 
 endmodule

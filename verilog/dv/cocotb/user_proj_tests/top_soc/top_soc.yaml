@@ -1,0 +1,6 @@
+# SPDX-License-Identifier: Apache-2.0
+# Organization: VIPS-TC
+# Engineer: Shikha Tiwari
+# Description: Test configuration for Smart Power Fault Signature Analyzer SoC
+Tests:
+    - {name: top_soc, sim: RTL}

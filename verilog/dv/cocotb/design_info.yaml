@@ -1,9 +1,17 @@
-CARAVEL_ROOT: /usr/caravel_user_project/caravel
-MCW_ROOT: /usr/caravel_user_project/mgmt_core_wrapper
+USER_PROJECT_ROOT: /home/shikha/caravel-fault-analyzer
+CARAVEL_ROOT: /home/shikha/caravel-fault-analyzer/caravel
+MCW_ROOT: /home/shikha/caravel-fault-analyzer/mgmt_core_wrapper
+PDK_ROOT: /home/shikha/caravel-fault-analyzer/dependencies/pdks
 PDK: sky130A
-PDK_ROOT: /usr/pdk
-USER_PROJECT_ROOT: /usr/caravel_user_project
+
+clk: 10
+clk_name: wb_clk_i
+simulator: icarus
+timeout: 100
 caravan: false
-clk: 25
-emailto:
-- null
+emailto: []
+
+rtl_path: verilog/rtl/
+gl_path: verilog/gl/
+includes:
+  - verilog/rtl/
