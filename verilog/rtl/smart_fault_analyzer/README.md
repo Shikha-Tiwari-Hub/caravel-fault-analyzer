@@ -1,9 +1,9 @@
 ## Table of Contents
-- [SPFA Architecture Overview](smart_fault_analyzer/README.md)
-- [Module Descriptions](verilog/rtl/README.md)
-- [RTL-Level Verification](verilog/dv/cocotb/user_proj_tests/README.md)
-- [IO & Pin Description](verilog/rtl/README.md)
-- [GDS Layout - Smart Fault Analyzer : top_soc](gds/top_soc.gds)
+- [SPFA Architecture Overview](#1-spfa-architecture-overview)
+- [Module Descriptions](#2-module-descriptions)
+- [RTL-Level Verification](#3-rtl-level-verification)
+- [IO & Pin Description](#4--io--pin-description)
+- [GDS Layout](#5-gds-layout)
 
 ---
 ## 1. SPFA Architecture Overview
@@ -16,7 +16,7 @@ The Smart Power Fault Analyzer (SPFA) is a hardware IP designed for real-time vo
   <img src="docs/fault_analyzer_block_dia.png" height= "500" width="600"/>
 
 ---
-## 2.  Module Descriptions
+## 2. Module Descriptions
 ### `adc.v` - ADC Interface
 - Samples 12-bit input `io_in[11:0]` on each clock cycle  
 - Provides synchronized output `sample_out[11:0]`  
@@ -132,6 +132,7 @@ Base Address: `0x30000000`
 | `0x14` | `REG_IRQ_CLEAR` | W | Write 1 to clear corresponding IRQ flag |
 
 ---
-## 5. GDS Layout - Smart fault analyzer : top_soc
+## 5. GDS Layout
+### Smart fault analyzer : top_soc
   <img src="docs/top_soc_gds.jpeg" width="700"/>
 
