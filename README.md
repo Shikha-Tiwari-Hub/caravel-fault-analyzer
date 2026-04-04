@@ -15,17 +15,23 @@ ASIC-Ready | OpenLane | Sky130
 
 </div>
 
+### Project Information
+**Project:** Smart Power Fault Analyzer (SPFA)  
+**Target Application:** Electric Vehicle Battery Management System (EV-BMS) Safety Monitoring  
+**Technology Platform:** Efabless Caravel SoC Harness  
+**PDK:** SkyWater 130nm (Sky130A) Open-Source PDK  
+**Design Flow:** OpenLane chipIgnite flow  
+**Language:** Verilog HDL  
+**Verification:** Cocotb / Icarus Verilog  
 
 ## Table of Contents
 - [Problem Statement](#1-problem-statement)
 - [Proposed Solution](#2-proposed-solution)
-- [System Architecture](#3-system-architecture)
-- [Control FSM Design](#4-control-fsm-design)
-- [Verification Results](#5-verification-results)
-- [GDS Layout - Smart fault analyzer : top_soc](#6-gds-layout---smart-fault-analyzer--top_soc)
-- [Implementation Status](#7-implementation-status)
-- [Scalability and Future Scope](#8-scalability-and-future-scope)
-- [Applications](#9-applications)
+- [Application: EV Battery Management System (BMS)](#3-application-ev-battery-management-system-bms)
+- [Feasibility & Cost Analysis](#4-feasibility--cost-analysis)
+- [Caravel SoC Integration](#5-caravel-soc-integration)
+- [GPIO Configurations](#6-gpio-configurations)
+- [Verification Results](#7-verification-results)
 - [Documentation & Resources](#documentation--resources)
 - [Project Structure](#project-structure)
 - [License](#license)
@@ -33,139 +39,179 @@ ASIC-Ready | OpenLane | Sky130
 
 ---
 ## 1. Problem Statement
-Modern **embedded** and** SoC-based** systems require **stable power** supply for proper operation. However, issues such as **over-voltage**, **under-voltage**, and sudden **current spikes** can **damage** the system or **reduce reliability**.
+Modern **SoC-based embedded systems** rely on a **stable power supply** for correct operation. Unexpected events such as **over-voltage**, **under-voltage**, or **sudden current spikes** can cause:
+- Component damage 
+-	System crashes 
+-	Reduced reliability and lifetime
 
-**Traditional fault detection** systems have several limitations:
-- They use **fixed thresholds** and cannot be changed during operation.
-- They are not integrated with the processor, so decision-making is **limited**.
-- They rely on external monitoring circuits, which **increases response time**.
+**Limitations of traditional fault detection:**
+- Fixed thresholds that cannot adapt during operation 
+-	Separate monitoring circuits not integrated with the processor - slow decision-making 
+-	Software-based detection suffers from latency, risking catastrophic failures
 
-Therefore, a **configurable** and **fast fault detection** system integrated within the SoC is required.
+**Need:** A **fast**, **configurable**, **SoC-integrated fault detection** system that reacts in real time to **protect the system**.
 
 ---
 ## 2. Proposed Solution
-The **Smart Power Fault Analyzer** is a hardware IP block integrated into the SoC. It continuously monitors **power signals** and **detects faults** in real time.\
-**Main capabilities**:
-- Continuous monitoring of power signals using **ADC input**
-- **Detection** and **classification of faults** (over-voltage, under-voltage, spikes)
-- **Fast response** using hardware logic
-- **Interrupt generation** to notify the processor immediately
-
-This makes the system **reliable** and **suitable** for real-time **applications**.
-
----
-### Comparison with Traditional Methods
-
-| Feature        | Proposed SoC Solution                  | Traditional External System          |
-|---------------|--------------------------------------|------------------------------------|
-| **Response Time** | **Nanoseconds** to Microseconds          | Milliseconds to Seconds            |
-| **Thresholds**    | **Software-programmable** (via registers)| Fixed hardware-based               |
-| **Footprint**     | **Integrated** (no extra PCB space)      | External (extra board area needed) |
-| **Intelligence**  | **FSM-based classification**             | Simple "Trip / No Trip" logic      |
+The **Smart Power Fault Analyzer** SoC is a hardware IP block, real-time **power fault detection** and **classification** system integrated into the **Caravel harness**.\
+It continuously monitors a **12-bit ADC input**, compares sampled values against a **programmable threshold**, classifies **fault types**, and **raises maskable interrupt requests (IRQs)** to the Caravel management **RISC-V core** via the **Wishbone bus**.
+### Key Features
+| Feature | Description |
+|--------|-------------|
+| **12-bit ADC Interface** | Samples power signal via `io_in[11:0]` GPIO pads |
+| **Fault Detection Engine** | Classifies overvoltage, undervoltage, and anomaly faults |
+| **Wishbone Slave Interface** | Full 32-bit WB MI A compatible register interface |
+| **Maskable IRQ** | `user_irq[0]` raised on fault detection |
+| **Programmable Threshold** | 16-bit threshold register via WB address `0x04` |
+| **Fault Mask Register** | 8-bit mask for selective fault enabling |
+| **IRQ Latch & Clear** | Edge-triggered IRQ with software-clearable status |
 
 ---
-## 3. System Architecture
-The design consists of **four main** subsystems:\
-**1. Signal Acquisition** – Receives and **synchronizes ADC input** samples  
-**2. Fault Processing** – Compares inputs with **thresholds** and **detects faults**  
-**3. Data Capture** – Circular buffer stores **pre/post fault data** (black box)  
-**4. Control Logic (FSM)** – Manages **detection**, **capture**, and **communication**
+## 3. Application: EV Battery Management System (BMS)
+This chip is designed as a **hardware-based voltage fault monitoring IP** for Electric Vehicle Battery Management Systems (EV-BMS).  
+It enables real-time detection of **over-voltage and under-voltage conditions** with deterministic, low-latency response, overcoming the limitations of traditional software-based monitoring approaches.
 
-### Block Architecture Diagram
-<p align="center">
-  <img src="verilog/rtl/smart_fault_analyzer/assets/fault_analyzer_block_diagram.png" height="400 width="600"/>
-</p>
+### 1️⃣ Architectural Gap: Why This IP is Needed
+EV Battery Management Systems require fast and reliable voltage monitoring under highly dynamic operating conditions:
+- **Electrical Variations:** Voltage fluctuations during battery charging and discharging cycles  
+- **Safety Requirements:** Deterministic detection of abnormal voltage conditions  
+- **Dynamic Limits:** Configurable thresholds required for different operating states  
 
----
+Traditional solutions rely on **software polling and external analog protection circuits**, which introduce:
+- Non-deterministic response latency  
+- Limited configurability and scalability  
+- Increased system complexity and hardware cost  
 
-## 4. Control FSM Design
-The system operates using a **finite state machine** with the following states:
+### 2️⃣ System Integration: How the IP Operates
+The **Smart Power Fault Analyzer (SPFA)** is integrated within the BMS SoC as a dedicated hardware monitoring IP block:
+1. **Voltage Sampling** – Receives digitized voltage inputs from an external ADC  
+2. **Threshold Configuration** – System processor configures voltage limits via control registers  
+3. **Fault Detection** – Comparator logic evaluates thresholds and detects faults in a single clock cycle  
+4. **Fault Signaling** – Generates an interrupt or status flag to the system controller  
+5. **System Response** – Controller executes protective actions (e.g., disconnect battery, limit charging current)
 
-- **Monitor**: Normal operation, continuously checking signals
-- **Fault**: Fault condition detected
-- **Post Capture**: Additional data is recorded
-- **Freeze**: Buffer is stopped to preserve data
-- **Send**: Data/interrupt is sent to the processor
+### 3️⃣ Deployment Scenario: EV Battery Protection
+In an EV Battery Management System, the SPFA module continuously monitors
+battery voltage levels through digitized ADC inputs.
 
-This ensures **controlled** and **predictable** system behavior.
+**When abnormal voltage conditions are detected**:
+- **Over-voltage:** Charging current is reduced or disconnected  
+- **Under-voltage:** Load isolation or system shutdown is triggered  
+- **Voltage spike:** Controller performs immediate protection action  
 
-### FSM Diagram
-<p align="center">
-  <img src="verilog/rtl/smart_fault_analyzer/assets/fault_analyzer_FSM_DIAGRAM.png" height= "600" width="400"/>
-</p>
+The hardware interrupt generated by **SPFA** enables the system controller
+to respond instantly, improving safety and system reliability.
 
----
+### EV-BMS System Architecture
+**Future EV BMS** architecture showing SPFA IP integrated on SoC for real-time fault detection and hardware safety interlocks (Caravel integration in progress).
 
- ## 5. Verification Results
-- The design is functionally verified using GTKWave simulation. The waveform shows correct behavior of fault detection and FSM-based control logic. When the input signal (`adc_in`) crosses the defined threshold, the `fault_flag` is asserted, and the fault type is classified correctly (`fault_type = 01`). 
-- The FSM transitions through its expected states, triggering `freeze_buffer` to capture data and asserting `send_data` for processor communication. The interrupt signaling and control flow operate as intended, confirming reliable real-time fault detection.
-- The results demonstrate that the system responds quickly and deterministically to fault conditions. The design can be further improved by extending support for multi-channel monitoring, adaptive thresholds, and enhanced fault classification mechanisms.
-
- <p align="center">
-  <img src="verilog/rtl/smart_fault_analyzer/assets/fault_analyzer_WAVEFORM.png" width="900"/>
-</p>
-
----
-## 6. GDS Layout - Smart fault analyzer : top_soc 
-<p align="center">
-  <img src="verilog/rtl/smart_fault_analyzer/assets/top_soc_GDS.jpeg" width="900"/>
-</p>
+<img src="https://github.com/user-attachments/assets/59ac80ba-045f-4b89-8c5d-ff6c5000dfda" alt="Future EV BMS Architecture" width="600" height="500">
 
 ---
-## 7. Implementation Status
-- **RTL modules implemented**: ADC Interface, Fault Detection Engine, Fault Classification, Circular Buffer, Event FSM Controller  
-- **Functional verification** performed for **fault detection** and **FSM behavior**  
+## 4. Feasibility & Cost Analysis
+### Bill of Materials (BOM) Comparison – EV BMS
+This comparison illustrates a typical EV Battery Management System (BMS) implementation using discrete components versus a system integrating the **Smart Power Fault Analyzer (SPFA)** as an on-chip hardware IP.
 
-### Future Work
-- Design and implement **memory-mapped register** interface for configuration and status monitoring  
-- Integrate **interrupt (IRQ)** interface for processor communication  
-- Integrate with **Caravel SoC** platform
+| Component Category | Conventional Design (Discrete/COTS) | SPFA-Based SoC Approach | Impact |
+|-------------------|--------------------------------------|------------------------|--------|
+| Main Controller | Automotive-grade MCU | Integrated processor within SoC platform | Reduced external components |
+| Fault Monitoring | Dedicated analog front-end / protection IC | On-chip SPFA hardware IP | Eliminates separate monitoring IC |
+| Signal Conditioning | External analog circuitry | Simplified digital interface from ADC | Reduced analog circuitry |
+| External Memory | Optional EEPROM / Flash | Integrated or system-level memory | Potential component reduction |
+| PCB Complexity | Higher routing density | Simplified interconnect | Reduced PCB complexity |
 
----
- ## 8. Scalability and Future Scope
-The proposed **Smart Power Fault Analyzer SoC** is designed with a **modular** and **scalable architecture**, enabling f**uture extensions** without major **redesign**.
-- Multi-channel monitoring support
-- Extension to voltage, current, and temperature sensing
-- On-chip ADC integration
-- Advanced fault logging and analytics
-- Potential evolution into full power management IP
-
----
-## 9. Applications
-### Industrial Systems
-- Motor controllers  
-- Power converters  
-- PLC systems  
-
-### Commercial Systems
-- Server power management  
-- Smart meters  
-- Battery management systems  
-
-### Edge / IoT Systems
-- Smart gateways  
-- Remote monitoring nodes  
-- Solar inverters  
-- EV charging systems  
+### 💎 Estimated System Impact
+- **Reduced external component count** due to integration of monitoring logic within the SoC  
+- **Lower PCB routing complexity** by minimizing external analog protection circuitry  
+- **Improved system reliability** due to fewer discrete components and interconnects  
+- **Better scalability** since voltage thresholds and monitoring logic are configurable in hardware
 
 ---
+## 5. Caravel SOC Integration
+The **Smart Power Fault Analyzer (SPFA)** is integrated as a user IP inside the
+Caravel SoC harness.
+The module interfaces with the **Wishbone bus** for configuration
+and receives **digitized voltage inputs** through the **GPIO interface**.
 
+<img src="verilog/rtl/smart_fault_analyzer/docs/Caravel_harness_block_diagram.png" width="800"/>
+
+### Integration Overview
+The SPFA module connects to the Caravel system through three primary interfaces:
+
+| Interface | Signal | Description |
+|----------|--------|-------------|
+| Wishbone | wb_* | Configuration and status register access |
+| GPIO Input | io_in[11:0] | Digitized voltage from external ADC |
+| Interrupt | user_irq[0] | Fault detection notification to CPU |
+| Clock | wb_clk_i | System clock |
+| Reset | wb_rst_i | Global reset |
+
+The hardware performs voltage monitoring and fault detection in a single clock
+cycle, enabling deterministic fault response for safety-critical systems.
+
+---
+## GDS Layout - user_project_wrapper
+<img src="verilog/rtl/smart_fault_analyzer/docs/user_project_wrapper_gds.jpeg" width="700"/>
+
+### 👉 Integration Details
+- **Bus Interface:** Wishbone slave connected to Caravel management SoC  
+- **Control Path:** CPU configures thresholds via memory-mapped registers  
+- **Data Path:** ADC input (`io_in[11:0]`) processed in real-time  
+- **Interrupt Handling:** Fault events trigger `user_irq[0]`  
+<img src="verilog/rtl/smart_fault_analyzer/docs/user_project_wrapper_gds1.jpeg" width="500"/>
+
+---
+## 6. GPIO Configurations
+The SPFA module interfaces with the Caravel SoC using GPIO pins
+for receiving digitized voltage samples and generating fault interrupts.
+- [IO & Pin Description](verilog/rtl/smart_fault_analyzer/README.md)
+
+---
+ ## 7. Verification Results
+ The **Smart Power Fault Analyzer** (SPFA) was **verified** at multiple levels to ensure
+correct **functionality** and **system** integration.
+
+Verification includes:
+- **RTL simulation** using Icarus Verilog testbench
+- **Firmware-level verification** using cocotb with C firmware
+
+ ### 👉 RTL Simulation (iverilog)
+- [RTL-Level Verification](verilog/rtl/README.md)
+
+ ### 👉 Firmware Simulation (cocotb)
+**Tool:** cocotb v1.9.2 + Icarus Verilog 12.0
+| Test | Simulation | Result | Duration |
+|---|---|---|---|
+| `top_soc` | Firmware |  **PASSED** | 30,000 ns |
+
+**Test Log Evidence:**\
+<img src="verilog/rtl/smart_fault_analyzer/docs/firmware_verification.png " width="600"/>
+
+| Firmware Files | [`verilog/dv/cocotb/user_proj_tests/top_soc`](verilog/dv/cocotb/user_proj_tests/top_soc) 
+### Run Simulation
+```bash
+# Configure GPIO first
+cf gpio-config
+
+# Run test
+cf verify top_soc
+```
+---
 ## Documentation & Resources
 For detailed hardware specifications and register maps, refer to the following official documents:
 
 * **[SoC-Based Early Fault Detector](https://link.springer.com/chapter/10.1007/978-981-97-8476-9_26)**: Development of SoC-Based Early Fault Detector System for Induction Motors.
-* **[Adaptive Protection](https://arxiv.org/pdf/2308.15917)**: On-Chip Sensors Data Collection and Analysis for
-SoC Health Management.
+* **[Fault Detection and Diagnosis of the EV](https://www.mdpi.com/2075-1702/11/7/713))**: Development of SoC-Based Early Fault Detector System for Induction Motors.
+
 ### AI-Assisted Workflow & Queries
 - Design understanding and architecture planning
 - RTL debugging and refinement
 - Documentation structuring
 * **How can I design a Smart Power Fault Analyzer SoC for real-time monitoring?**  *Tools used: ChatGPT*\
   Focus on architecture design, including ADC interfacing, threshold-based fault detection, FSM control, interrupt generation, and SoC integration.
-* **How can I compare a Smart Power Fault Analyzer SoC with traditional fault detection methods?**  *Tools used: Google AI*\
-  Analyze differences in response time, configurability, system integration, hardware efficiency, and real-time performance.
-* **Debug and verify waveform behavior for fault detection systems?**  *Tools used: ChatGPT*\
-  Validate fault triggering, FSM state transitions, buffer control signals, and interrupt generation using GTKWave simulation.
+* **Debug and verification of Soc**  *Tools used: ChatGPT*\
+ Validate Firmware verification - top_soc.c , top_soc.py & top_soc.yaml
+* **Future EV BMS Architecture** : Generated By AI tool used: Google Gemini
 ---
 ## Project Structure
 
@@ -174,9 +220,9 @@ SoC Health Management.
 | [`verilog/rtl/smart_fault_analyzer`](verilog/rtl/smart_fault_analyzer) | RTL source code for Smart Power Fault Analyzer modules (ADC interface, fault detection, FSM, buffer) |
 | [`verilog/rtl/smart_fault_analyzer/tb`](verilog/rtl/smart_fault_analyzer/tb) | Testbench files for functional verification |
 | [`openlane/top_soc/final/gds`](openlane/top_soc/gds) | GDSII layout file (`top_soc.gds`) |
-| [`openlane/top_soc/final/lef`](openlane/top_soc/lef) | LEF files for layout abstraction |
-| [`openlane/top_soc/final/def`](openlane/top_soc/def) | Placement and routing data |
-| [`verilog/rtl/smart_fault_analyzer/assets`](verilog/rtl/smart_fault_analyzer/assets) | Architecture diagrams, waveform images, and GDS images |
+| [`openlane/user_project_wrapper/final/gds`](openlane/user_project_wrapper/gds) | GDSII layout file (`user_project_wrapper.gds`)|
+| [`verilog/dv/cocotb/user_proj_tests/top_soc`](verilog/dv/cocotb/user_proj_tests/top_soc) | Firmware Verification |
+| [`verilog/rtl/smart_fault_analyzer/assets`](verilog/rtl/smart_fault_analyzer/docs) | Architecture diagrams, waveform images, and GDS images |
 | [`README.md`](README.md) | Project overview and documentation |
 
 ---
