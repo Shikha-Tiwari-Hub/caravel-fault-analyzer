@@ -1,9 +1,9 @@
 ## Table of Contents
-- [SPFA Architecture Overview](#1-spfa-architecture-Overview)
-- [Module Descriptions](#2-module-descriptions)
-- [RTL-Level Verification](#3-rtl-level-verification)
-- [IO & Pin Description](#4-📌-io-&-pin-description)
-- [GDS Layout - Smart fault analyzer : top_soc](#6-gds-layout---smart-fault-analyzer--top_soc)
+- [SPFA Architecture Overview](smart_fault_analyzer/README.md)
+- [Module Descriptions](verilog/rtl/README.md)
+- [RTL-Level Verification](verilog/dv/cocotb/user_proj_tests/README.md)
+- [IO & Pin Description](verilog/rtl/README.md)
+- [GDS Layout - Smart Fault Analyzer : top_soc](gds/top_soc.gds)
 
 ---
 ## 1. SPFA Architecture Overview
@@ -13,9 +13,7 @@ The Smart Power Fault Analyzer (SPFA) is a hardware IP designed for real-time vo
 - **Register Interface:** Enables configuration and status monitoring  
 - **Interrupt Output:** Signals fault events to the processor
 
-<p align="center">
-  <img src="verilog/rtl/smart_fault_analyzer/docs/fault_analyzer_block_dia.png" height= "400" width="600"/>
-</p>
+  <img src="docs/fault_analyzer_block_dia.png" height= "500" width="600"/>
 
 ---
 ## 2.  Module Descriptions
@@ -47,34 +45,38 @@ The Smart Power Fault Analyzer (SPFA) is a hardware IP designed for real-time vo
 ---
 ## 3. RTL-Level Verification
 Simulation was performed using a dedicated testbench to validate core functionality.
+
+**Verification environment:**
+- **Simulator:** Icarus Verilog
+- **Testbench:** Custom Verilog testbench
+- **Waveform analysis:** GTKWave
+
 ### Integration Test Results
-| Test # | Scenario | Result |
-|-------|---------|--------|
-| 1 | System enable |  Pass |
-| 2 | No fault condition |  No IRQ |
-| 3 | Fault condition |  IRQ triggered |
-| 4 | Status register read |  Correct value (0x3) |
-| 5 | Interrupt clear |  IRQ cleared |
+| Test ID | Test Scenario | Input Condition | Expected Behavior | Result |
+|-------|---------------|----------------|------------------|--------|
+| TEST 1 | Enable Fault Detection Engine | Enable register write | Fault detection module activates | PASS |
+| TEST 2 | Normal Operation | ADC = 1000 | No interrupt generated | PASS |
+| TEST 3 | Overcurrent Fault | ADC = 4000 (> HIGH_TH = 3500) | IRQ triggered for overcurrent | PASS |
+| TEST 4 | Undervoltage Fault | ADC = 200 (< LOW_TH = 500) | IRQ triggered for undervoltage | PASS |
+| TEST 5 | Spike Detection | 1000 → 2000 (Δ > SPIKE_TH = 800) | IRQ triggered for spike | PASS |
 
-
-### Build & Run
+### 👉 Build & Run
 **Run Simulation**
 ```bash
-iverilog -g2012 -o verification/out verification/tb_top_soc.v rtl/*.v
-vvp verification/out
+iverilog -g2012 -o sim \
+    tb/tb_top_soc.v \
+    top_soc.v adc.v fault_detect.v fault_analyzer_regs.v \
+    && vvp sim
 ```
 ```bash
 gtkwave tb_top_soc.fst
 ```
 ### Test log evidence
-<p align="center">
-  <img src="verilog/rtl/smart_fault_analyzer/docs/top_soc_verification.png" height= "400" width="400"/>
-</p>
+  <img src="docs/rtl_verification.png" height= "400" width="400"/>
 
 ### Waveform
-<p align="center">
-  <img src="verilog/rtl/smart_fault_analyzer/docs/fault_analyzer_WAVEFORM.png" width="900"/>
-</p>
+  <img src="docs/fault_analyzer_WAVEFORM.png" width="600"/>
+
 
 ---
 ## 4. 📌 IO & Pin Description
@@ -131,6 +133,5 @@ Base Address: `0x30000000`
 
 ---
 ## 5. GDS Layout - Smart fault analyzer : top_soc
-<p align="center">
-  <img src="verilog/rtl/smart_fault_analyzer/docs/top_soc_GDS.jpeg" width="900"/>
-</p>
+  <img src="docs/top_soc_gds.jpeg" width="700"/>
+
