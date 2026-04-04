@@ -176,7 +176,7 @@ Verification includes:
 - **Firmware-level verification** using cocotb with C firmware
 
  ### 👉 RTL Simulation (iverilog)
-- [RTL-Level Verification](verilog/rtl/README.md)
+- [RTL-Level Verification](verilog/rtl/smart_fault_analyzer/README.md)
 
  ### 👉 Firmware Simulation (cocotb)
 **Tool:** cocotb v1.9.2 + Icarus Verilog 12.0
