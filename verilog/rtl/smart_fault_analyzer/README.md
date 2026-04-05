@@ -2,8 +2,9 @@
 - [SPFA Architecture Overview](#1-spfa-architecture-overview)
 - [Module Descriptions](#2-module-descriptions)
 - [RTL-Level Verification](#3-rtl-level-verification)
-- [IO & Pin Description](#4--io--pin-description)
-- [GDS Layout](#5-gds-layout)
+- [Gate-Level (GL) Simulation](#4-gate-level-gl-simulation)
+- [IO & Pin Description](#5--io--pin-description)
+- [GDS Layout](#6-gds-layout)
 
 ---
 ## 1. SPFA Architecture Overview
@@ -58,28 +59,60 @@ Simulation was performed using a dedicated testbench to validate core functional
 | TEST 2 | Normal Operation | ADC = 1000 | No interrupt generated | PASS |
 | TEST 3 | Overcurrent Fault | ADC = 4000 (> HIGH_TH = 3500) | IRQ triggered for overcurrent | PASS |
 | TEST 4 | Undervoltage Fault | ADC = 200 (< LOW_TH = 500) | IRQ triggered for undervoltage | PASS |
-| TEST 5 | Spike Detection | 1000 → 2000 (Δ > SPIKE_TH = 800) | IRQ triggered for spike | PASS |
+| TEST 5 | Spike Detection | 1000 -> 2000 ( 🔺 > SPIKE_TH = 800) | IRQ triggered for spike | PASS |
 
 ### 👉 Build & Run
 **Run Simulation**
 ```bash
-iverilog -g2012 -o sim \
-    tb/tb_top_soc.v \
-    top_soc.v adc.v fault_detect.v fault_analyzer_regs.v \
-    && vvp sim
+iverilog -g2012 -o sim tb/tb_top_soc.v top_soc.v adc.v fault_detect.v fault_analyzer_regs.v && vvp sim
 ```
 ```bash
-gtkwave tb_top_soc.fst
+gtkwave tb_top_soc_rtl.vcd
 ```
 ### Test log evidence
   <img src="docs/rtl_verification.png" height= "400" width="400"/>
 
 ### Waveform
-  <img src="docs/fault_analyzer_WAVEFORM.png" width="600"/>
+  <img src="docs/waveform_rtl.jpeg" width="600"/>
+
+---
+## 4. Gate-Level (GL) Simulation
+**Tool:** Icarus Verilog 12.0
+**PDK:** Sky130A - sky130_fd_sc_hd
+
+### Integration Test Results
+| Test | Description | ADC Value | Expected | Result |
+|---|---|---|---|---|
+| TEST 1 | Enable fault engine | - | Register=1 | PASS |
+| TEST 2 | Normal operation | 1000 | No IRQ | PASS |
+| TEST 3 | Overcurrent fault | 4000 > HIGH_TH=3500 | IRQ=1 | PASS |
+| TEST 4 | Undervoltage fault | 200 < LOW_TH=500 | IRQ=1 | PASS |
+| TEST 5 | Spike detection | 1000->2000 ( ^t=1000) | IRQ=1 | PASS |
+
+### Build & Run
+**Run Simulation**
+```bash
+iverilog -g2012 -DFUNCTIONAL -DUSE_POWER_PINS -DUNIT_DELAY=#1 -o sim_gl \
+    tb/tb_top_soc.v \
+    ~/caravel-fault-analyzer/verilog/gl/top_soc.v \
+    ~/caravel-fault-analyzer/dependencies/pdks/sky130A/libs.ref/sky130_fd_sc_hd/verilog/primitives.v \
+    ~/caravel-fault-analyzer/dependencies/pdks/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd.v \
+    && vvp sim_gl
+```
+```bash
+gtkwave tb_top_soc_gl.vcd
+```
+### Test log evidence
+
+<img src="docs/rtl_verification.png" height= "400" width="400"/>
+
+### Waveform
+
+<img src="docs/waveform_gl.jpeg" height= "400" width="600"/>
 
 
 ---
-## 4. 📌 IO & Pin Description
+## 5. 📌 IO & Pin Description
 ### GPIO Mapping
 | GPIO Pin | Direction | Signal | Description |
 |---|---|---|---|
@@ -132,7 +165,7 @@ Base Address: `0x30000000`
 | `0x14` | `REG_IRQ_CLEAR` | W | Write 1 to clear corresponding IRQ flag |
 
 ---
-## 5. GDS Layout
+## 6. GDS Layout
 ### Smart fault analyzer : top_soc
   <img src="docs/top_soc_gds.jpeg" width="700"/>
 
