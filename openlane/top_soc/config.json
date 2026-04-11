@@ -33,6 +33,8 @@
     "MAGIC_DRC_USE_GDS": true,
     "DPL_CELL_PADDING": 2,
     "GPL_CELL_PADDING": 2,
+    "HEURISTIC_ANTENNA_THRESHOLD": 90,
+    "GRT_ANTENNA_ITERS": 20,
     "pdk::sky130*": {
         "RT_MAX_LAYER": "met4",
         "scl::sky130_fd_sc_hd": {
