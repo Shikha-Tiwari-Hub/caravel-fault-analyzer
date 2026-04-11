@@ -33,6 +33,7 @@ ASIC-Ready | OpenLane | Sky130
 - [GPIO Configurations](#6-gpio-configurations)
 - [Verification Results](#7-verification-results)
 - [Static Timing Analysis (STA)](#8-static-timing-analysis-sta)
+- [Local Precheck](#9-local-precheck)
 - [Documentation & Resources](#documentation--resources)
 - [Project Structure](#project-structure)
 - [License](#license)
@@ -227,6 +228,25 @@ cf verify top_soc
 | Hold Slack (r2r) | 0.82 ns | PASS |
 
 ---
+## 9. Local Precheck
+
+Before submitting, the local precheck was run to verify compliance with all shuttle requirements.
+
+**Note:** GPIO configuration was completed before running precheck using `cf gpio-config`.
+
+### Command
+```bash
+cf precheck --disable-lvs
+```
+### Results
+<img width="600" height="777" alt="precheck passed" src="https://github.com/user-attachments/assets/f3911767-38d2-48e1-b5e9-c2d4fca8d9ec" />
+
+_**LVS Note: `cf precheck LVS` reports top_soc as a black box due to a known tool
+limitation where the precheck internally references user_proj_example.v
+regardless of the actual project macro name.**_\
+<img width="500" height="500" alt="precheck" src="https://github.com/user-attachments/assets/51e9ffa1-7d48-4ffa-8958-4d1faa1d59fa" />
+
+---
 ### Known Warnings
 #### 👉 Hold Violations in user_project_wrapper (30 violations, WNS = -0.46 ns)
 **Root Cause:** Hold violations appear at the wrapper level due to the
@@ -238,7 +258,7 @@ at the wrapper boundary, not in the core logic.
 worst-case fast corner (ff) and do not affect functional correctness
 at the nominal operating frequency of 40 MHz.
 
-#### 👉 Antenna Violations (top_soc: 1, wrapper: 7)
+#### 👉 Antenna Violations (wrapper: 6)
 **Root Cause:** Long routing nets on input pins without antenna diodes.
 
 **Current Status:** Minor violations, within acceptable range for
