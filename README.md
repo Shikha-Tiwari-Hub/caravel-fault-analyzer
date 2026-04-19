@@ -123,7 +123,7 @@ to respond instantly, improving safety and system reliability.
 ### EV-BMS System Architecture
 **Future EV BMS** architecture showing SPFA IP integrated on SoC for real-time fault detection and hardware safety interlocks (Caravel integration in progress).
 
-<img src="https://github.com/user-attachments/assets/59ac80ba-045f-4b89-8c5d-ff6c5000dfda" alt="Future EV BMS Architecture" width="600" height="500">
+<img src="https://github.com/user-attachments/assets/59ac80ba-045f-4b89-8c5d-ff6c5000dfda" alt="Future EV BMS Architecture" width="1000" height="400">
 
 ---
 ## 4. Feasibility & Cost Analysis
@@ -260,7 +260,7 @@ cf verify top_soc
 | Setup Slack (r2r) | 20.27 ns | PASS |
 | Hold Slack (r2r) | 0.78 ns | PASS |
 
-<img width="700" height="500" alt="sta top_soc" src="https://github.com/user-attachments/assets/98b846b8-037d-45aa-8eac-a7810760cdd3" />
+<img width="1000" height="400" alt="sta top_soc" src="https://github.com/user-attachments/assets/98b846b8-037d-45aa-8eac-a7810760cdd3" />
 
 The timing results confirm that the **top_soc macro meets all setup and hold timing constraints** for the target clock frequency.
 
@@ -276,7 +276,7 @@ The timing results confirm that the **top_soc macro meets all setup and hold tim
 | Setup Slack (r2r) | 20.27 ns | PASS |
 | Hold Slack (r2r) | 0.82 ns | PASS |
 
-<img width="700" height="500" alt="sta wrapper" src="https://github.com/user-attachments/assets/4c7872d5-b4bb-42a1-9840-9c0cac03d6bf" />
+<img width="1000" height="400" alt="sta wrapper" src="https://github.com/user-attachments/assets/4c7872d5-b4bb-42a1-9840-9c0cac03d6bf" />
 
 The hold violations appear at the wrapper integration level due to routing delays between the `top_soc` macro and the Caravel harness.
 The internal `top_soc` macro itself is timing-clean with **zero setup and hold violations**.
@@ -299,7 +299,7 @@ Before submitting, the local precheck was run to verify compliance with all **sh
 cf precheck --disable-lvs
 ```
 ### Results
-<img width="600" height="777" alt="precheck passed" src="https://github.com/user-attachments/assets/f3911767-38d2-48e1-b5e9-c2d4fca8d9ec" />
+<img width="600" height="600" alt="precheck passed" src="https://github.com/user-attachments/assets/f3911767-38d2-48e1-b5e9-c2d4fca8d9ec" />
 
 _**LVS Note: `cf precheck LVS` reports top_soc as a black box due to a known tool
 limitation where the precheck internally references user_proj_example.v
@@ -308,7 +308,7 @@ regardless of the actual project macro name.**_
 cf precheck
 ```
 
-<img width="500" height="500" alt="precheck" src="https://github.com/user-attachments/assets/51e9ffa1-7d48-4ffa-8958-4d1faa1d59fa" />
+<img width="500" height="400" alt="precheck" src="https://github.com/user-attachments/assets/51e9ffa1-7d48-4ffa-8958-4d1faa1d59fa" />
 
 ---
 ## 10. Quick Start
