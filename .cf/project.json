@@ -41,5 +41,1115 @@
       "36": "13'h0402",
       "37": "13'h0402"
     }
+  },
+  "precheck": {
+    "version": "1.3.2",
+    "timestamp": "2026-05-01T15:29:13.869234+00:00",
+    "pdk": "sky130A",
+    "passed": false,
+    "checks": {
+      "topcell_check": {
+        "status": "pass",
+        "duration_s": 0.04
+      },
+      "gpio_defines": {
+        "status": "pass",
+        "duration_s": 1.16
+      },
+      "xor": {
+        "status": "pass",
+        "duration_s": 4.8
+      },
+      "magic_drc": {
+        "status": "pass",
+        "duration_s": 11.23
+      },
+      "klayout_feol": {
+        "status": "pass",
+        "duration_s": 7.9
+      },
+      "klayout_beol": {
+        "status": "pass",
+        "duration_s": 14.94
+      },
+      "klayout_offgrid": {
+        "status": "pass",
+        "duration_s": 5.08
+      },
+      "klayout_met_min_ca_density": {
+        "status": "pass",
+        "duration_s": 2.8
+      },
+      "klayout_pin_label_purposes_overlapping_drawing": {
+        "status": "pass",
+        "duration_s": 2.66
+      },
+      "klayout_zeroarea": {
+        "status": "pass",
+        "duration_s": 2.04
+      },
+      "spike_check": {
+        "status": "pass",
+        "duration_s": 2.08
+      },
+      "illegal_cellname_check": {
+        "status": "pass",
+        "duration_s": 0.05
+      },
+      "lvs": {
+        "status": "pass",
+        "duration_s": 64.9
+      },
+      "oeb": {
+        "status": "fail",
+        "duration_s": 0.31,
+        "details": "66 errors, 26 warnings across 38 GPIOs",
+        "report": {
+          "report_relpath": "/tmp/tmp2_4vpngq/repo/precheck_results/01_MAY_2026___15_27_13/outputs/reports/cvc.oeb.report",
+          "design_type": "caravel",
+          "gpios": [
+            {
+              "gpio": 0,
+              "user_index": 0,
+              "analog_index": null,
+              "in": 4,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "FIXED_STD_INPUT_NOPULL",
+              "resolved_mode": "FIXED_STD_INPUT_NOPULL",
+              "warning_count": 0,
+              "error_count": 0
+            },
+            {
+              "gpio": 1,
+              "user_index": 1,
+              "analog_index": null,
+              "in": 4,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "FIXED_STD_INPUT_NOPULL",
+              "resolved_mode": "FIXED_STD_INPUT_NOPULL",
+              "warning_count": 0,
+              "error_count": 0
+            },
+            {
+              "gpio": 2,
+              "user_index": 2,
+              "analog_index": null,
+              "in": 4,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "FIXED_STD_INPUT_NOPULL",
+              "resolved_mode": "FIXED_STD_INPUT_NOPULL",
+              "warning_count": 0,
+              "error_count": 0
+            },
+            {
+              "gpio": 3,
+              "user_index": 3,
+              "analog_index": null,
+              "in": 4,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "FIXED_STD_INPUT_PULLUP",
+              "resolved_mode": "FIXED_STD_INPUT_PULLUP",
+              "warning_count": 0,
+              "error_count": 0
+            },
+            {
+              "gpio": 4,
+              "user_index": 4,
+              "analog_index": null,
+              "in": 4,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "FIXED_STD_INPUT_NOPULL",
+              "resolved_mode": "FIXED_STD_INPUT_NOPULL",
+              "warning_count": 0,
+              "error_count": 0
+            },
+            {
+              "gpio": 5,
+              "user_index": 5,
+              "analog_index": null,
+              "in": 4,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 0,
+              "error_count": 2
+            },
+            {
+              "gpio": 6,
+              "user_index": 6,
+              "analog_index": null,
+              "in": 4,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 0,
+              "error_count": 2
+            },
+            {
+              "gpio": 7,
+              "user_index": 7,
+              "analog_index": 0,
+              "in": 4,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 0,
+              "error_count": 2
+            },
+            {
+              "gpio": 8,
+              "user_index": 8,
+              "analog_index": 1,
+              "in": 4,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 0,
+              "error_count": 2
+            },
+            {
+              "gpio": 9,
+              "user_index": 9,
+              "analog_index": 2,
+              "in": 4,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 0,
+              "error_count": 2
+            },
+            {
+              "gpio": 10,
+              "user_index": 10,
+              "analog_index": 3,
+              "in": 4,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 0,
+              "error_count": 2
+            },
+            {
+              "gpio": 11,
+              "user_index": 11,
+              "analog_index": 4,
+              "in": 4,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 0,
+              "error_count": 2
+            },
+            {
+              "gpio": 12,
+              "user_index": 12,
+              "analog_index": 5,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 13,
+              "user_index": 13,
+              "analog_index": 6,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 14,
+              "user_index": 14,
+              "analog_index": 7,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 15,
+              "user_index": 15,
+              "analog_index": 8,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 16,
+              "user_index": 16,
+              "analog_index": 9,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 17,
+              "user_index": 17,
+              "analog_index": 10,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 18,
+              "user_index": 18,
+              "analog_index": 11,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 19,
+              "user_index": 19,
+              "analog_index": 12,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 20,
+              "user_index": 20,
+              "analog_index": 13,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 21,
+              "user_index": 21,
+              "analog_index": 14,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 22,
+              "user_index": 22,
+              "analog_index": 15,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 23,
+              "user_index": 23,
+              "analog_index": 16,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 24,
+              "user_index": 24,
+              "analog_index": 17,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 25,
+              "user_index": 25,
+              "analog_index": 18,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 26,
+              "user_index": 26,
+              "analog_index": 19,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 27,
+              "user_index": 27,
+              "analog_index": 20,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 28,
+              "user_index": 28,
+              "analog_index": 21,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 29,
+              "user_index": 29,
+              "analog_index": 22,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 30,
+              "user_index": 30,
+              "analog_index": 23,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 31,
+              "user_index": 31,
+              "analog_index": 24,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 32,
+              "user_index": 32,
+              "analog_index": 25,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 33,
+              "user_index": 33,
+              "analog_index": 26,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 34,
+              "user_index": 34,
+              "analog_index": 27,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 35,
+              "user_index": 35,
+              "analog_index": 28,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 36,
+              "user_index": 36,
+              "analog_index": null,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            },
+            {
+              "gpio": 37,
+              "user_index": 37,
+              "analog_index": null,
+              "in": null,
+              "out": null,
+              "analog": null,
+              "oeb_min": null,
+              "oeb_sim": null,
+              "oeb_max": null,
+              "configuration": "USER_STD_INPUT_NOPULL",
+              "resolved_mode": "USER_STD_INPUT_NOPULL",
+              "warning_count": 1,
+              "error_count": 2
+            }
+          ],
+          "messages": [
+            {
+              "gpio": 5,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 5,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 6,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 6,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 7,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 7,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 8,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 8,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 9,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 9,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 10,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 10,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 11,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 11,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 12,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 12,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 12,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 13,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 13,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 13,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 14,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 14,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 14,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 15,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 15,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 15,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 16,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 16,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 16,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 17,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 17,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 17,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 18,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 18,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 18,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 19,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 19,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 19,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 20,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 20,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 20,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 21,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 21,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 21,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 22,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 22,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 22,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 23,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 23,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 23,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 24,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 24,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 24,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 25,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 25,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 25,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 26,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 26,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 26,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 27,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 27,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 27,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 28,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 28,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 28,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 29,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 29,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 29,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 30,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 30,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 30,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 31,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 31,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 31,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 32,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 32,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 32,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 33,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 33,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 33,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 34,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 34,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 34,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 35,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 35,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 35,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 36,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 36,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 36,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            },
+            {
+              "gpio": 37,
+              "severity": "warning",
+              "text": "missing user input connection"
+            },
+            {
+              "gpio": 37,
+              "severity": "error",
+              "text": "user mode requires output connection"
+            },
+            {
+              "gpio": 37,
+              "severity": "error",
+              "text": "user mode requires oeb connection"
+            }
+          ],
+          "summary": {
+            "total": 38,
+            "errors": 66,
+            "warnings": 26,
+            "no_issues_banner": false
+          }
+        }
+      }
+    },
+    "input_file_hash": "477ac16307d4e6d272f08565922e7049955334c3"
   }
 }
