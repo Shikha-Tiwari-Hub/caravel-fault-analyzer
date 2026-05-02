@@ -15,6 +15,9 @@ module top_soc(
   output wbs_ack_o,
   output[31:0] wbs_dat_o,
   input[11:0] adc_data_in,
+  output[127:0] la_data_out,
+  output[37:0] io_out,
+  output[37:0] io_oeb,
   output[2:0] user_irq
 );
 endmodule

@@ -15,3 +15,8 @@
 /logs
 openlane2-venv
 design_info.yaml
+.history_sta
+parser.out
+parsetab.py
+sta.sdc
+tmp-macros-list

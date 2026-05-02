@@ -1,7 +1,7 @@
-8 Lint warnings found.
+5 Lint warnings found.
 [STA-1140] /home/shikha/caravel-fault-analyzer/lib/top_soc.lib line 1, library top_soc already exists.
 Cell 'top_soc' has (44) input pin(s) without antenna gate information. They might not be connected to a gate.
-Cell 'top_soc' has (18) output pin(s) without antenna diffusion information. They might not be driven.
+Cell 'top_soc' has (222) output pin(s) without antenna diffusion information. They might not be driven.
 [STA-1140] /home/shikha/caravel-fault-analyzer/lib/top_soc.lib line 1, library top_soc already exists.
 [STA-1140] /home/shikha/caravel-fault-analyzer/lib/top_soc.lib line 1, library top_soc already exists.
 [PDN-0239] Core ring shape falls outside the die bounds.

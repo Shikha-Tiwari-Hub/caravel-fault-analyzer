@@ -1,0 +1,1 @@
+WNS: PASS (No paths = No violations)

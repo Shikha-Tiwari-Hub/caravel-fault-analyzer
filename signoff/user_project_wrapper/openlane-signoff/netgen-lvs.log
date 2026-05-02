@@ -92,12 +92,12 @@ No property perim found for device sky130_fd_pr__special_pfet_01v8_hvt
 No property topography found for device sky130_fd_pr__special_pfet_01v8_hvt
 No property value found for device sky130_fd_pr__diode_pw2nd_05v5
 No property mult found for device sky130_fd_pr__diode_pw2nd_05v5
-Comparison output logged to file /home/shikha/caravel-fault-analyzer/openlane/user_project_wrapper/runs/26_04_04_20_17/61-netgen-lvs/reports/lvs.netgen.rpt
-Logging to file "/home/shikha/caravel-fault-analyzer/openlane/user_project_wrapper/runs/26_04_04_20_17/61-netgen-lvs/reports/lvs.netgen.rpt" enabled
+Comparison output logged to file /home/shikha/caravel-fault-analyzer/openlane/user_project_wrapper/runs/26_05_02_22_07/61-netgen-lvs/reports/lvs.netgen.rpt
+Logging to file "/home/shikha/caravel-fault-analyzer/openlane/user_project_wrapper/runs/26_05_02_22_07/61-netgen-lvs/reports/lvs.netgen.rpt" enabled
 
 Contents of circuit 1:  Circuit: 'top_soc'
 Circuit top_soc contains 0 device instances.
-Circuit contains 0 nets, and 123 disconnected pins.
+Circuit contains 0 nets, and 327 disconnected pins.
 Contents of circuit 2:  Circuit: 'top_soc'
 Circuit top_soc contains 0 device instances.
 Circuit contains 0 nets.
@@ -107,18 +107,18 @@ Circuit top_soc contains no devices.
 Contents of circuit 1:  Circuit: 'user_project_wrapper'
 Circuit user_project_wrapper contains 1 device instances.
   Class: top_soc               instances:   1
-Circuit contains 123 nets, and 522 disconnected pins.
+Circuit contains 327 nets, and 318 disconnected pins.
 Contents of circuit 2:  Circuit: 'user_project_wrapper'
 Circuit user_project_wrapper contains 1 device instances.
   Class: top_soc               instances:   1
-Circuit contains 123 nets, and 522 disconnected pins.
+Circuit contains 327 nets, and 318 disconnected pins.
 
 Circuit 1 contains 1 devices, Circuit 2 contains 1 devices.
-Circuit 1 contains 123 nets,    Circuit 2 contains 123 nets.
+Circuit 1 contains 327 nets,    Circuit 2 contains 327 nets.
 
 
 Final result: 
 Circuits match uniquely.
 .
-Logging to file "/home/shikha/caravel-fault-analyzer/openlane/user_project_wrapper/runs/26_04_04_20_17/61-netgen-lvs/reports/lvs.netgen.rpt" disabled
+Logging to file "/home/shikha/caravel-fault-analyzer/openlane/user_project_wrapper/runs/26_05_02_22_07/61-netgen-lvs/reports/lvs.netgen.rpt" disabled
 LVS Done.

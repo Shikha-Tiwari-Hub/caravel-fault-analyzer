@@ -17,4 +17,7 @@
 [DRT-0349] LEF58_ENCLOSURE with no CUTCLASS is not supported. Skipping for layer via4
 Threshold for Threshold-surpassing long wires is not set. The checker will be skipped.
 Cell 'top_soc' has (44) input pin(s) without antenna gate information. They might not be connected to a gate.
-Cell 'top_soc' has (18) output pin(s) without antenna diffusion information. They might not be driven.
+Cell 'top_soc' has (222) output pin(s) without antenna diffusion information. They might not be driven.
+Max Slew violations found in the following corners:
+* max_ss_100C_1v60
+* nom_ss_100C_1v60

@@ -5,7 +5,7 @@ report_checks -unconstrained
 ======================= max_ff_n40C_1v95 Corner ===================================
 
 Startpoint: wb_rst_i (input port clocked by clk)
-Endpoint: mprj/_581_ (recovery check against rising-edge clock clk)
+Endpoint: mprj/_594_ (recovery check against rising-edge clock clk)
 Path Group: asynchronous
 Path Type: max
 
@@ -14,50 +14,47 @@ Fanout         Cap        Slew       Delay        Time   Description
                                   0.000000    0.000000   clock clk (rise edge)
                                   5.570000    5.570000   clock network delay (propagated)
                                  12.500000   18.070000 v input external delay
-     2    0.084945    0.000000    0.000000   18.070000 v wb_rst_i (in)
+     2    0.034882    0.000000    0.000000   18.070000 v wb_rst_i (in)
                                                          wb_rst_i (net)
-                      0.032751    0.016376   18.086376 v mprj/input13/A (sky130_fd_sc_hd__clkbuf_2)
-     5    0.032136    0.087021    0.122036   18.208412 v mprj/input13/X (sky130_fd_sc_hd__clkbuf_2)
+                      0.007724    0.003862   18.073862 v mprj/input13/A (sky130_fd_sc_hd__clkbuf_4)
+     9    0.075938    0.108886    0.144329   18.218189 v mprj/input13/X (sky130_fd_sc_hd__clkbuf_4)
                                                          mprj/net13 (net)
-                      0.087059    0.001531   18.209942 v mprj/fanout65/A (sky130_fd_sc_hd__buf_4)
-    17    0.088241    0.084455    0.163395   18.373337 v mprj/fanout65/X (sky130_fd_sc_hd__buf_4)
+                      0.113217    0.017051   18.235241 v mprj/fanout65/A (sky130_fd_sc_hd__buf_8)
+    33    0.134614    0.076592    0.150328   18.385569 v mprj/fanout65/X (sky130_fd_sc_hd__buf_8)
                                                          mprj/net65 (net)
-                      0.084677    0.003762   18.377100 v mprj/fanout64/A (sky130_fd_sc_hd__buf_8)
-    33    0.139790    0.078669    0.138638   18.515738 v mprj/fanout64/X (sky130_fd_sc_hd__buf_8)
+                      0.080688    0.013609   18.399178 v mprj/fanout64/A (sky130_fd_sc_hd__buf_8)
+    33    0.116415    0.067247    0.135483   18.534660 v mprj/fanout64/X (sky130_fd_sc_hd__buf_8)
                                                          mprj/net64 (net)
-                      0.079334    0.006336   18.522074 v mprj/fanout63/A (sky130_fd_sc_hd__buf_8)
-    33    0.121850    0.069711    0.137200   18.659273 v mprj/fanout63/X (sky130_fd_sc_hd__buf_8)
-                                                         mprj/net63 (net)
-                      0.074683    0.014454   18.673727 v mprj/_501_/A (sky130_fd_sc_hd__inv_2)
-     1    0.004017    0.028111    0.045105   18.718834 ^ mprj/_501_/Y (sky130_fd_sc_hd__inv_2)
-                                                         mprj/_054_ (net)
-                      0.028112    0.000211   18.719044 ^ mprj/_581_/SET_B (sky130_fd_sc_hd__dfstp_1)
-                                             18.719044   data arrival time
+                      0.072984    0.015195   18.549856 v mprj/_514_/A (sky130_fd_sc_hd__inv_2)
+     1    0.003916    0.027515    0.044249   18.594105 ^ mprj/_514_/Y (sky130_fd_sc_hd__inv_2)
+                                                         mprj/_067_ (net)
+                      0.027517    0.000206   18.594311 ^ mprj/_594_/SET_B (sky130_fd_sc_hd__dfstp_1)
+                                             18.594311   data arrival time
 
                                  25.000000   25.000000   clock clk (rise edge)
                                   4.650000   29.650000   clock source latency
-     2    0.057029    0.610000    0.000000   29.650000 ^ wb_clk_i (in)
+     2    0.057513    0.610000    0.000000   29.650000 ^ wb_clk_i (in)
                                                          wb_clk_i (net)
-                      0.627947    0.008974   29.658974 ^ mprj/clkbuf_0_wb_clk_i/A (sky130_fd_sc_hd__clkbuf_16)
-    17    0.130865    0.116438    0.203004   29.861977 ^ mprj/clkbuf_0_wb_clk_i/X (sky130_fd_sc_hd__clkbuf_16)
+                      0.626061    0.008031   29.658030 ^ mprj/clkbuf_0_wb_clk_i/A (sky130_fd_sc_hd__clkbuf_16)
+    17    0.126684    0.113747    0.202594   29.860622 ^ mprj/clkbuf_0_wb_clk_i/X (sky130_fd_sc_hd__clkbuf_16)
                                                          mprj/clknet_0_wb_clk_i (net)
-                      0.118257    0.011418   29.873396 ^ mprj/clkbuf_3_5__f_wb_clk_i/A (sky130_fd_sc_hd__clkbuf_16)
-    13    0.053312    0.055272    0.126423   29.999819 ^ mprj/clkbuf_3_5__f_wb_clk_i/X (sky130_fd_sc_hd__clkbuf_16)
+                      0.114616    0.007837   29.868460 ^ mprj/clkbuf_3_5__f_wb_clk_i/A (sky130_fd_sc_hd__clkbuf_16)
+    13    0.053675    0.055542    0.126423   29.994884 ^ mprj/clkbuf_3_5__f_wb_clk_i/X (sky130_fd_sc_hd__clkbuf_16)
                                                          mprj/clknet_3_5__leaf_wb_clk_i (net)
-                      0.055672    0.003610   30.003428 ^ mprj/_581_/CLK (sky130_fd_sc_hd__dfstp_1)
-                                 -0.250000   29.753429   clock uncertainty
-                                  0.000000   29.753429   clock reconvergence pessimism
-                                  0.088645   29.842075   library recovery time
-                                             29.842075   data required time
+                      0.055721    0.002146   29.997030 ^ mprj/_594_/CLK (sky130_fd_sc_hd__dfstp_1)
+                                 -0.250000   29.747030   clock uncertainty
+                                  0.000000   29.747030   clock reconvergence pessimism
+                                  0.088641   29.835672   library recovery time
+                                             29.835672   data required time
 ---------------------------------------------------------------------------------------------
-                                             29.842075   data required time
-                                            -18.719044   data arrival time
+                                             29.835672   data required time
+                                            -18.594311   data arrival time
 ---------------------------------------------------------------------------------------------
-                                             11.123030   slack (MET)
+                                             11.241362   slack (MET)
 
 
-Startpoint: wbs_adr_i[5] (input port clocked by clk)
-Endpoint: mprj/_562_ (rising edge-triggered flip-flop clocked by clk)
+Startpoint: wbs_adr_i[7] (input port clocked by clk)
+Endpoint: mprj/_568_ (rising edge-triggered flip-flop clocked by clk)
 Path Group: clk
 Path Type: max
 
@@ -66,52 +63,52 @@ Fanout         Cap        Slew       Delay        Time   Description
                                   0.000000    0.000000   clock clk (rise edge)
                                   5.570000    5.570000   clock network delay (propagated)
                                   3.890000    9.460000 v input external delay
-     2    0.082858    0.920000    0.000000    9.460000 v wbs_adr_i[5] (in)
-                                                         wbs_adr_i[5] (net)
-                      0.953722    0.016861    9.476861 v mprj/input19/A (sky130_fd_sc_hd__buf_1)
-     2    0.007873    0.053781    0.265896    9.742757 v mprj/input19/X (sky130_fd_sc_hd__buf_1)
-                                                         mprj/net19 (net)
-                      0.053783    0.000418    9.743176 v mprj/_309_/A (sky130_fd_sc_hd__or4b_2)
-     2    0.010954    0.086511    0.411318   10.154493 v mprj/_309_/X (sky130_fd_sc_hd__or4b_2)
+     2    0.082028    0.920000    0.000000    9.460000 v wbs_adr_i[7] (in)
+                                                         wbs_adr_i[7] (net)
+                      0.930229    0.005114    9.465115 v mprj/input21/A (sky130_fd_sc_hd__buf_1)
+     5    0.025190    0.107107    0.316257    9.781371 v mprj/input21/X (sky130_fd_sc_hd__buf_1)
+                                                         mprj/net21 (net)
+                      0.107209    0.002981    9.784352 v mprj/_309_/B (sky130_fd_sc_hd__or4b_2)
+     2    0.018132    0.102097    0.428961   10.213313 v mprj/_309_/X (sky130_fd_sc_hd__or4b_2)
                                                          mprj/_142_ (net)
-                      0.086514    0.000596   10.155089 v mprj/_310_/C (sky130_fd_sc_hd__nor3_2)
-     3    0.022279    0.285801    0.234214   10.389304 ^ mprj/_310_/Y (sky130_fd_sc_hd__nor3_2)
+                      0.102223    0.001996   10.215309 v mprj/_310_/C (sky130_fd_sc_hd__nor3_2)
+     4    0.022519    0.288256    0.241330   10.456638 ^ mprj/_310_/Y (sky130_fd_sc_hd__nor3_2)
                                                          mprj/_143_ (net)
-                      0.285827    0.002217   10.391521 ^ mprj/max_cap59/A (sky130_fd_sc_hd__clkbuf_4)
-    21    0.085858    0.197696    0.248631   10.640152 ^ mprj/max_cap59/X (sky130_fd_sc_hd__clkbuf_4)
+                      0.288259    0.000782   10.457420 ^ mprj/max_cap59/A (sky130_fd_sc_hd__buf_4)
+    19    0.064596    0.138602    0.176528   10.633948 ^ mprj/max_cap59/X (sky130_fd_sc_hd__buf_4)
                                                          mprj/net59 (net)
-                      0.198466    0.010159   10.650311 ^ mprj/_326_/B1 (sky130_fd_sc_hd__a221o_1)
-     1    0.017157    0.129802    0.166304   10.816615 ^ mprj/_326_/X (sky130_fd_sc_hd__a221o_1)
-                                                         mprj/_153_ (net)
-                      0.129821    0.001285   10.817901 ^ mprj/_328_/B1 (sky130_fd_sc_hd__o22a_1)
-     1    0.002872    0.033864    0.080290   10.898191 ^ mprj/_328_/X (sky130_fd_sc_hd__o22a_1)
-                                                         mprj/_088_ (net)
-                      0.033864    0.000185   10.898376 ^ mprj/hold18/A (sky130_fd_sc_hd__dlygate4sd3_1)
-     1    0.002668    0.036462    0.370510   11.268886 ^ mprj/hold18/X (sky130_fd_sc_hd__dlygate4sd3_1)
-                                                         mprj/net101 (net)
-                      0.036462    0.000180   11.269066 ^ mprj/_562_/D (sky130_fd_sc_hd__dfrtp_1)
-                                             11.269066   data arrival time
+                      0.140097    0.011577   10.645526 ^ mprj/_311_/C (sky130_fd_sc_hd__and3_1)
+     1    0.011399    0.095379    0.149263   10.794788 ^ mprj/_311_/X (sky130_fd_sc_hd__and3_1)
+                                                         mprj/_144_ (net)
+                      0.095389    0.001029   10.795818 ^ mprj/_312_/C1 (sky130_fd_sc_hd__a221o_1)
+     1    0.002934    0.035820    0.067001   10.862819 ^ mprj/_312_/X (sky130_fd_sc_hd__a221o_1)
+                                                         mprj/_094_ (net)
+                      0.035820    0.000205   10.863024 ^ mprj/hold25/A (sky130_fd_sc_hd__dlygate4sd3_1)
+     1    0.003773    0.044118    0.377905   11.240929 ^ mprj/hold25/X (sky130_fd_sc_hd__dlygate4sd3_1)
+                                                         mprj/net312 (net)
+                      0.044118    0.000270   11.241199 ^ mprj/_568_/D (sky130_fd_sc_hd__dfrtp_1)
+                                             11.241199   data arrival time
 
                                  25.000000   25.000000   clock clk (rise edge)
                                   4.650000   29.650000   clock source latency
-     2    0.057029    0.610000    0.000000   29.650000 ^ wb_clk_i (in)
+     2    0.057513    0.610000    0.000000   29.650000 ^ wb_clk_i (in)
                                                          wb_clk_i (net)
-                      0.627947    0.008974   29.658974 ^ mprj/clkbuf_0_wb_clk_i/A (sky130_fd_sc_hd__clkbuf_16)
-    17    0.130865    0.116438    0.203004   29.861977 ^ mprj/clkbuf_0_wb_clk_i/X (sky130_fd_sc_hd__clkbuf_16)
+                      0.626061    0.008031   29.658030 ^ mprj/clkbuf_0_wb_clk_i/A (sky130_fd_sc_hd__clkbuf_16)
+    17    0.126684    0.113747    0.202594   29.860622 ^ mprj/clkbuf_0_wb_clk_i/X (sky130_fd_sc_hd__clkbuf_16)
                                                          mprj/clknet_0_wb_clk_i (net)
-                      0.118257    0.011418   29.873396 ^ mprj/clkbuf_3_5__f_wb_clk_i/A (sky130_fd_sc_hd__clkbuf_16)
-    13    0.053312    0.055272    0.126423   29.999819 ^ mprj/clkbuf_3_5__f_wb_clk_i/X (sky130_fd_sc_hd__clkbuf_16)
-                                                         mprj/clknet_3_5__leaf_wb_clk_i (net)
-                      0.055747    0.003954   30.003773 ^ mprj/_562_/CLK (sky130_fd_sc_hd__dfrtp_1)
-                                 -0.250000   29.753773   clock uncertainty
-                                  0.000000   29.753773   clock reconvergence pessimism
-                                 -0.033462   29.720312   library setup time
-                                             29.720312   data required time
+                      0.114057    0.004718   29.865341 ^ mprj/clkbuf_3_3__f_wb_clk_i/A (sky130_fd_sc_hd__clkbuf_16)
+     6    0.042970    0.047847    0.120355   29.985697 ^ mprj/clkbuf_3_3__f_wb_clk_i/X (sky130_fd_sc_hd__clkbuf_16)
+                                                         mprj/clknet_3_3__leaf_wb_clk_i (net)
+                      0.048044    0.002018   29.987715 ^ mprj/_568_/CLK (sky130_fd_sc_hd__dfrtp_1)
+                                 -0.250000   29.737715   clock uncertainty
+                                  0.000000   29.737715   clock reconvergence pessimism
+                                 -0.034451   29.703264   library setup time
+                                             29.703264   data required time
 ---------------------------------------------------------------------------------------------
-                                             29.720312   data required time
-                                            -11.269066   data arrival time
+                                             29.703264   data required time
+                                            -11.241199   data arrival time
 ---------------------------------------------------------------------------------------------
-                                             18.451246   slack (MET)
+                                             18.462067   slack (MET)
 
 
 
@@ -133,8 +130,24 @@ max slew
 
 Pin                                        Limit        Slew       Slack
 ------------------------------------------------------------------------
-user_irq[0]                             1.500000    1.816348   -0.316348 (VIOLATED)
-mprj/output41/X                         1.500000    1.761779   -0.261779 (VIOLATED)
+mprj/input8/A                           1.500000    2.567927   -1.067927 (VIOLATED)
+mprj/ANTENNA_input8_A/DIODE             1.500000    2.567891   -1.067891 (VIOLATED)
+mprj/input11/A                          1.500000    2.518454   -1.018454 (VIOLATED)
+mprj/ANTENNA_input11_A/DIODE            1.500000    2.518382   -1.018382 (VIOLATED)
+mprj/input9/A                           1.500000    2.492823   -0.992823 (VIOLATED)
+mprj/ANTENNA_input9_A/DIODE             1.500000    2.492785   -0.992785 (VIOLATED)
+mprj/input10/A                          1.500000    2.324830   -0.824830 (VIOLATED)
+mprj/ANTENNA_input10_A/DIODE            1.500000    2.324791   -0.824792 (VIOLATED)
+mprj/input12/A                          1.500000    2.139099   -0.639099 (VIOLATED)
+mprj/ANTENNA_input12_A/DIODE            1.500000    2.139064   -0.639064 (VIOLATED)
+mprj/input3/A                           1.500000    1.948549   -0.448549 (VIOLATED)
+mprj/ANTENNA_input3_A/DIODE             1.500000    1.948512   -0.448512 (VIOLATED)
+mprj/input6/A                           1.500000    1.916848   -0.416848 (VIOLATED)
+mprj/ANTENNA_input6_A/DIODE             1.500000    1.916810   -0.416810 (VIOLATED)
+user_irq[0]                             1.500000    1.828194   -0.328194 (VIOLATED)
+mprj/output41/X                         1.500000    1.782030   -0.282030 (VIOLATED)
+mprj/input2/A                           1.500000    1.694920   -0.194920 (VIOLATED)
+mprj/ANTENNA_input2_A/DIODE             1.500000    1.694882   -0.194882 (VIOLATED)
 
 max fanout
 
@@ -142,40 +155,42 @@ Pin                                   Limit Fanout  Slack
 ---------------------------------------------------------
 mprj/_272_/Y                             10     33    -23 (VIOLATED)
 mprj/_303_/X                             10     33    -23 (VIOLATED)
+mprj/clkbuf_3_4__f_wb_clk_i/X            10     33    -23 (VIOLATED)
 mprj/fanout60/X                          10     33    -23 (VIOLATED)
-mprj/fanout62/X                          10     33    -23 (VIOLATED)
 mprj/fanout63/X                          10     33    -23 (VIOLATED)
 mprj/fanout64/X                          10     33    -23 (VIOLATED)
+mprj/fanout65/X                          10     33    -23 (VIOLATED)
 mprj/_302_/Y                             10     27    -17 (VIOLATED)
-mprj/clkbuf_3_0__f_wb_clk_i/X            10     27    -17 (VIOLATED)
-mprj/clkbuf_3_7__f_wb_clk_i/X            10     23    -13 (VIOLATED)
+mprj/clkbuf_3_7__f_wb_clk_i/X            10     27    -17 (VIOLATED)
+mprj/clkbuf_3_0__f_wb_clk_i/X            10     23    -13 (VIOLATED)
 mprj/_271_/X                             10     21    -11 (VIOLATED)
-mprj/max_cap59/X                         10     21    -11 (VIOLATED)
+mprj/clkbuf_3_1__f_wb_clk_i/X            10     21    -11 (VIOLATED)
 mprj/_290_/X                             10     19     -9 (VIOLATED)
 mprj/clkbuf_3_2__f_wb_clk_i/X            10     19     -9 (VIOLATED)
+mprj/clkbuf_3_6__f_wb_clk_i/X            10     19     -9 (VIOLATED)
+mprj/fanout61/X                          10     19     -9 (VIOLATED)
+mprj/fanout62/X                          10     19     -9 (VIOLATED)
+mprj/max_cap59/X                         10     19     -9 (VIOLATED)
 mprj/_291_/Y                             10     17     -7 (VIOLATED)
 mprj/_304_/X                             10     17     -7 (VIOLATED)
+mprj/_320_/X                             10     17     -7 (VIOLATED)
+mprj/_440_/Y                             10     17     -7 (VIOLATED)
 mprj/clkbuf_0_wb_clk_i/X                 10     17     -7 (VIOLATED)
-mprj/clkbuf_3_6__f_wb_clk_i/X            10     17     -7 (VIOLATED)
-mprj/fanout65/X                          10     17     -7 (VIOLATED)
-mprj/clkbuf_3_3__f_wb_clk_i/X            10     15     -5 (VIOLATED)
-mprj/clkbuf_3_4__f_wb_clk_i/X            10     14     -4 (VIOLATED)
+mprj/input16/X                           10     15     -5 (VIOLATED)
 mprj/clkbuf_3_5__f_wb_clk_i/X            10     13     -3 (VIOLATED)
-mprj/clkbuf_3_1__f_wb_clk_i/X            10     12     -2 (VIOLATED)
-mprj/fanout61/X                          10     12     -2 (VIOLATED)
 
 max capacitance
 
 Pin                                        Limit         Cap       Slack
 ------------------------------------------------------------------------
-mprj/output41/X                         0.417490    0.486990   -0.069500 (VIOLATED)
+mprj/output41/X                         0.417490    0.492741   -0.075251 (VIOLATED)
 
 
 
 ===========================================================================
 report_parasitic_annotation -report_unannotated
 ============================================================================
-Found 337 unannotated drivers.
+Found 541 unannotated drivers.
  analog_io[0]
  analog_io[10]
  analog_io[11]
@@ -205,14 +220,9 @@ Found 337 unannotated drivers.
  analog_io[7]
  analog_io[8]
  analog_io[9]
- io_in[12]
- io_in[13]
- io_in[14]
- io_in[15]
- io_in[16]
- io_in[17]
- io_in[18]
+ io_in[0]
  io_in[19]
+ io_in[1]
  io_in[20]
  io_in[21]
  io_in[22]
@@ -223,6 +233,7 @@ Found 337 unannotated drivers.
  io_in[27]
  io_in[28]
  io_in[29]
+ io_in[2]
  io_in[30]
  io_in[31]
  io_in[32]
@@ -231,6 +242,10 @@ Found 337 unannotated drivers.
  io_in[35]
  io_in[36]
  io_in[37]
+ io_in[3]
+ io_in[4]
+ io_in[5]
+ io_in[6]
  la_data_in[0]
  la_data_in[100]
  la_data_in[101]
@@ -492,9 +507,197 @@ Found 337 unannotated drivers.
  mprj/clkload1/Y
  mprj/clkload2/Y
  mprj/clkload3/Y
- mprj/clkload4/X
+ mprj/clkload4/Y
  mprj/clkload5/Y
  mprj/clkload6/Y
+ mprj/top_soc_100/HI
+ mprj/top_soc_101/HI
+ mprj/top_soc_102/HI
+ mprj/top_soc_103/HI
+ mprj/top_soc_104/HI
+ mprj/top_soc_105/HI
+ mprj/top_soc_106/HI
+ mprj/top_soc_107/HI
+ mprj/top_soc_108/HI
+ mprj/top_soc_109/HI
+ mprj/top_soc_110/HI
+ mprj/top_soc_111/HI
+ mprj/top_soc_112/HI
+ mprj/top_soc_113/HI
+ mprj/top_soc_114/HI
+ mprj/top_soc_115/HI
+ mprj/top_soc_116/HI
+ mprj/top_soc_117/HI
+ mprj/top_soc_118/HI
+ mprj/top_soc_119/HI
+ mprj/top_soc_120/HI
+ mprj/top_soc_121/HI
+ mprj/top_soc_122/HI
+ mprj/top_soc_123/HI
+ mprj/top_soc_124/HI
+ mprj/top_soc_125/HI
+ mprj/top_soc_126/HI
+ mprj/top_soc_127/HI
+ mprj/top_soc_128/HI
+ mprj/top_soc_129/HI
+ mprj/top_soc_130/HI
+ mprj/top_soc_131/HI
+ mprj/top_soc_132/HI
+ mprj/top_soc_133/HI
+ mprj/top_soc_134/HI
+ mprj/top_soc_135/HI
+ mprj/top_soc_136/HI
+ mprj/top_soc_137/HI
+ mprj/top_soc_138/HI
+ mprj/top_soc_139/HI
+ mprj/top_soc_140/HI
+ mprj/top_soc_141/HI
+ mprj/top_soc_142/HI
+ mprj/top_soc_143/HI
+ mprj/top_soc_144/HI
+ mprj/top_soc_145/HI
+ mprj/top_soc_146/HI
+ mprj/top_soc_147/HI
+ mprj/top_soc_148/HI
+ mprj/top_soc_149/HI
+ mprj/top_soc_150/HI
+ mprj/top_soc_151/HI
+ mprj/top_soc_152/HI
+ mprj/top_soc_153/HI
+ mprj/top_soc_154/HI
+ mprj/top_soc_155/HI
+ mprj/top_soc_156/HI
+ mprj/top_soc_157/HI
+ mprj/top_soc_158/HI
+ mprj/top_soc_159/HI
+ mprj/top_soc_160/HI
+ mprj/top_soc_161/HI
+ mprj/top_soc_162/HI
+ mprj/top_soc_163/HI
+ mprj/top_soc_164/HI
+ mprj/top_soc_165/HI
+ mprj/top_soc_166/HI
+ mprj/top_soc_167/HI
+ mprj/top_soc_168/HI
+ mprj/top_soc_169/HI
+ mprj/top_soc_170/HI
+ mprj/top_soc_171/HI
+ mprj/top_soc_172/HI
+ mprj/top_soc_173/HI
+ mprj/top_soc_174/HI
+ mprj/top_soc_175/HI
+ mprj/top_soc_176/HI
+ mprj/top_soc_177/HI
+ mprj/top_soc_178/HI
+ mprj/top_soc_179/HI
+ mprj/top_soc_180/HI
+ mprj/top_soc_181/HI
+ mprj/top_soc_182/HI
+ mprj/top_soc_183/HI
+ mprj/top_soc_184/HI
+ mprj/top_soc_185/HI
+ mprj/top_soc_186/HI
+ mprj/top_soc_187/HI
+ mprj/top_soc_188/HI
+ mprj/top_soc_189/HI
+ mprj/top_soc_190/HI
+ mprj/top_soc_191/HI
+ mprj/top_soc_192/HI
+ mprj/top_soc_193/HI
+ mprj/top_soc_194/HI
+ mprj/top_soc_195/HI
+ mprj/top_soc_196/HI
+ mprj/top_soc_197/HI
+ mprj/top_soc_198/HI
+ mprj/top_soc_199/HI
+ mprj/top_soc_200/HI
+ mprj/top_soc_201/HI
+ mprj/top_soc_202/HI
+ mprj/top_soc_203/HI
+ mprj/top_soc_204/HI
+ mprj/top_soc_205/HI
+ mprj/top_soc_206/HI
+ mprj/top_soc_207/HI
+ mprj/top_soc_208/HI
+ mprj/top_soc_209/HI
+ mprj/top_soc_210/HI
+ mprj/top_soc_211/HI
+ mprj/top_soc_212/HI
+ mprj/top_soc_213/HI
+ mprj/top_soc_214/HI
+ mprj/top_soc_215/HI
+ mprj/top_soc_216/HI
+ mprj/top_soc_217/HI
+ mprj/top_soc_218/HI
+ mprj/top_soc_219/HI
+ mprj/top_soc_220/HI
+ mprj/top_soc_221/HI
+ mprj/top_soc_222/HI
+ mprj/top_soc_223/HI
+ mprj/top_soc_224/HI
+ mprj/top_soc_225/HI
+ mprj/top_soc_226/HI
+ mprj/top_soc_227/HI
+ mprj/top_soc_228/HI
+ mprj/top_soc_229/HI
+ mprj/top_soc_230/HI
+ mprj/top_soc_231/HI
+ mprj/top_soc_232/HI
+ mprj/top_soc_233/HI
+ mprj/top_soc_234/HI
+ mprj/top_soc_235/HI
+ mprj/top_soc_236/HI
+ mprj/top_soc_237/HI
+ mprj/top_soc_238/HI
+ mprj/top_soc_239/HI
+ mprj/top_soc_240/HI
+ mprj/top_soc_241/HI
+ mprj/top_soc_242/HI
+ mprj/top_soc_243/HI
+ mprj/top_soc_244/HI
+ mprj/top_soc_245/HI
+ mprj/top_soc_246/HI
+ mprj/top_soc_247/HI
+ mprj/top_soc_248/HI
+ mprj/top_soc_249/HI
+ mprj/top_soc_250/LO
+ mprj/top_soc_251/LO
+ mprj/top_soc_252/LO
+ mprj/top_soc_253/LO
+ mprj/top_soc_254/LO
+ mprj/top_soc_255/LO
+ mprj/top_soc_256/LO
+ mprj/top_soc_257/LO
+ mprj/top_soc_258/LO
+ mprj/top_soc_259/LO
+ mprj/top_soc_260/LO
+ mprj/top_soc_261/LO
+ mprj/top_soc_262/LO
+ mprj/top_soc_263/LO
+ mprj/top_soc_264/LO
+ mprj/top_soc_265/LO
+ mprj/top_soc_266/LO
+ mprj/top_soc_267/LO
+ mprj/top_soc_268/LO
+ mprj/top_soc_269/LO
+ mprj/top_soc_270/LO
+ mprj/top_soc_271/LO
+ mprj/top_soc_272/LO
+ mprj/top_soc_273/LO
+ mprj/top_soc_274/LO
+ mprj/top_soc_275/LO
+ mprj/top_soc_276/LO
+ mprj/top_soc_277/LO
+ mprj/top_soc_278/LO
+ mprj/top_soc_279/LO
+ mprj/top_soc_280/LO
+ mprj/top_soc_281/LO
+ mprj/top_soc_282/LO
+ mprj/top_soc_283/LO
+ mprj/top_soc_284/LO
+ mprj/top_soc_285/LO
+ mprj/top_soc_286/LO
+ mprj/top_soc_287/LO
  mprj/top_soc_66/HI
  mprj/top_soc_67/HI
  mprj/top_soc_68/HI
@@ -513,11 +716,27 @@ Found 337 unannotated drivers.
  mprj/top_soc_81/HI
  mprj/top_soc_82/HI
  mprj/top_soc_83/HI
+ mprj/top_soc_84/HI
+ mprj/top_soc_85/HI
+ mprj/top_soc_86/HI
+ mprj/top_soc_87/HI
+ mprj/top_soc_88/HI
+ mprj/top_soc_89/HI
+ mprj/top_soc_90/HI
+ mprj/top_soc_91/HI
+ mprj/top_soc_92/HI
+ mprj/top_soc_93/HI
+ mprj/top_soc_94/HI
+ mprj/top_soc_95/HI
+ mprj/top_soc_96/HI
+ mprj/top_soc_97/HI
+ mprj/top_soc_98/HI
+ mprj/top_soc_99/HI
 Found 0 partially unannotated drivers.
 
 ===========================================================================
-max slew violation count 2
-max fanout violation count 23
+max slew violation count 18
+max fanout violation count 25
 max cap violation count 1
 ============================================================================
 

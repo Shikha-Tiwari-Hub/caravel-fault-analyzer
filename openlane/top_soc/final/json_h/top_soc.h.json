@@ -5,7 +5,7 @@
       "attributes": {
         "hdlname": "top_soc",
         "top": "00000000000000000000000000000001",
-        "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:14.1-98.10"
+        "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:14.1-106.10"
       },
       "ports": {
         "vccd1": {
@@ -60,13 +60,25 @@
           "direction": "input",
           "bits": [ 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121 ]
         },
+        "la_data_out": {
+          "direction": "output",
+          "bits": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ]
+        },
+        "io_out": {
+          "direction": "output",
+          "bits": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ]
+        },
+        "io_oeb": {
+          "direction": "output",
+          "bits": [ "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1" ]
+        },
         "user_irq": {
           "direction": "output",
           "bits": [ 122, "0", "0" ]
         }
       },
       "cells": {
-        "$and$/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:42$1": {
+        "$and$/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:47$1": {
           "hide_name": 1,
           "type": "$and",
           "parameters": {
@@ -77,7 +89,7 @@
             "Y_WIDTH": "00000000000000000000000000000001"
           },
           "attributes": {
-            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:42.25-42.45"
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:47.25-47.45"
           },
           "port_directions": {
             "A": "input",
@@ -90,7 +102,7 @@
             "Y": [ 123 ]
           }
         },
-        "$and$/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:42$2": {
+        "$and$/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:47$2": {
           "hide_name": 1,
           "type": "$and",
           "parameters": {
@@ -101,7 +113,7 @@
             "Y_WIDTH": "00000000000000000000000000000001"
           },
           "attributes": {
-            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:42.25-42.57"
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:47.25-47.57"
           },
           "port_directions": {
             "A": "input",
@@ -114,7 +126,7 @@
             "Y": [ 124 ]
           }
         },
-        "$and$/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:43$4": {
+        "$and$/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:48$4": {
           "hide_name": 1,
           "type": "$and",
           "parameters": {
@@ -125,7 +137,7 @@
             "Y_WIDTH": "00000000000000000000000000000001"
           },
           "attributes": {
-            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:43.25-43.46"
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:48.25-48.46"
           },
           "port_directions": {
             "A": "input",
@@ -138,7 +150,7 @@
             "Y": [ 126 ]
           }
         },
-        "$and$/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:43$5": {
+        "$and$/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:48$5": {
           "hide_name": 1,
           "type": "$and",
           "parameters": {
@@ -149,7 +161,7 @@
             "Y_WIDTH": "00000000000000000000000000000001"
           },
           "attributes": {
-            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:43.25-43.58"
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:48.25-48.58"
           },
           "port_directions": {
             "A": "input",
@@ -1525,7 +1537,7 @@
             "Y": [ 279, 280, 281, 282, 283, 284, 285, 286 ]
           }
         },
-        "$not$/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:43$3": {
+        "$not$/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:48$3": {
           "hide_name": 1,
           "type": "$not",
           "parameters": {
@@ -1534,7 +1546,7 @@
             "Y_WIDTH": "00000000000000000000000000000001"
           },
           "attributes": {
-            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:43.25-43.34"
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:48.25-48.34"
           },
           "port_directions": {
             "A": "input",
@@ -1545,7 +1557,7 @@
             "Y": [ 125 ]
           }
         },
-        "$not$/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:80$6": {
+        "$not$/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:85$6": {
           "hide_name": 1,
           "type": "$not",
           "parameters": {
@@ -1554,7 +1566,7 @@
             "Y_WIDTH": "00000000000000000000000000000001"
           },
           "attributes": {
-            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:80.23-80.27"
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:85.23-85.27"
           },
           "port_directions": {
             "A": "input",
@@ -1567,18 +1579,18 @@
         }
       },
       "netnames": {
-        "$and$/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:42$1_Y": {
+        "$and$/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:47$1_Y": {
           "hide_name": 1,
           "bits": [ 123 ],
           "attributes": {
-            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:42.25-42.45"
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:47.25-47.45"
           }
         },
-        "$and$/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:43$4_Y": {
+        "$and$/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:48$4_Y": {
           "hide_name": 1,
           "bits": [ 126 ],
           "attributes": {
-            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:43.25-43.46"
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:48.25-48.46"
           }
         },
         "$flatten\\u_fault.$0\\fault_flag[0:0]": {
@@ -1831,11 +1843,11 @@
             "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/fault_analyzer_regs.v:33.44-33.67"
           }
         },
-        "$not$/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:43$3_Y": {
+        "$not$/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:48$3_Y": {
           "hide_name": 1,
           "bits": [ 125 ],
           "attributes": {
-            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:43.25-43.34"
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:48.25-48.34"
           }
         },
         "adc_data_in": {
@@ -1849,49 +1861,70 @@
           "hide_name": 0,
           "bits": [ 362 ],
           "attributes": {
-            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:50.17-50.23"
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:55.17-55.23"
           }
         },
         "fault_flag": {
           "hide_name": 0,
           "bits": [ 188 ],
           "attributes": {
-            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:46.17-46.27"
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:51.17-51.27"
           }
         },
         "fault_mask": {
           "hide_name": 0,
           "bits": [ 213, 214, 215, 216, 217, 218, 219, 220 ],
           "attributes": {
-            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:51.17-51.27"
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:56.17-56.27"
           }
         },
         "fault_type": {
           "hide_name": 0,
           "bits": [ 191, 192 ],
           "attributes": {
-            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:47.17-47.27"
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:52.17-52.27"
+          }
+        },
+        "io_oeb": {
+          "hide_name": 0,
+          "bits": [ "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1" ],
+          "attributes": {
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:37.118-37.124"
+          }
+        },
+        "io_out": {
+          "hide_name": 0,
+          "bits": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+          "attributes": {
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:36.118-36.124"
           }
         },
         "irq": {
           "hide_name": 0,
           "bits": [ 122 ],
           "attributes": {
-            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:52.17-52.20"
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:57.17-57.20"
+          }
+        },
+        "la_data_out": {
+          "hide_name": 0,
+          "bits": [ "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0", "0" ],
+          "attributes": {
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:35.20-35.31"
           }
         },
         "sample_data": {
           "hide_name": 0,
           "bits": [ 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139 ],
           "attributes": {
-            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:45.17-45.28"
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:50.17-50.28"
           }
         },
         "threshold": {
           "hide_name": 0,
           "bits": [ 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360 ],
           "attributes": {
-            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:49.17-49.26"
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:54.17-54.26"
           }
         },
         "u_fault.fault_detected_comb": {
@@ -2010,7 +2043,7 @@
           "hide_name": 0,
           "bits": [ 122, "0", "0" ],
           "attributes": {
-            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:35.19-35.27"
+            "src": "/home/shikha/caravel-fault-analyzer/verilog/rtl/smart_fault_analyzer/top_soc.v:40.19-40.27"
           }
         },
         "vccd1": {
