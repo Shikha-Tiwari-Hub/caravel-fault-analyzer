@@ -1,0 +1,62 @@
+ gpio/user/analog |   in   |   out  | analog |  oeb min/sim/max  | configuration
+   0 /  0 /       |        |  vssd* |        | vccd*/vccd*/vccd* | FIXED_STD_INPUT_NOPULL 
+   1 /  1 /       |        |  vssd* |        | vccd*/vccd*/vccd* | FIXED_STD_INPUT_NOPULL 
+   2 /  2 /       |        |  vssd* |        | vccd*/vccd*/vccd* | FIXED_STD_INPUT_NOPULL 
+   3 /  3 /       |        |  vssd* |        | vccd*/vccd*/vccd* | FIXED_STD_INPUT_PULLUP 
+   4 /  4 /       |        |  vssd* |        | vccd*/vccd*/vccd* | FIXED_STD_INPUT_NOPULL 
+   5 /  5 /       |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+   6 /  6 /       |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+   7 /  7 /   0   |      4 |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 
+   8 /  8 /   1   |      4 |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 
+   9 /  9 /   2   |      4 |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 
+  10 / 10 /   3   |      4 |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 
+  11 / 11 /   4   |      4 |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 
+  12 / 12 /   5   |      4 |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 
+  13 / 13 /   6   |      4 |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 
+  14 / 14 /   7   |      4 |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 
+  15 / 15 /   8   |      4 |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 
+  16 / 16 /   9   |      4 |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 
+  17 / 17 /  10   |      4 |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 
+  18 / 18 /  11   |      4 |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 
+  19 / 19 /  12   |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+  20 / 20 /  13   |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+  21 / 21 /  14   |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+  22 / 22 /  15   |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+  23 / 23 /  16   |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+  24 / 24 /  17   |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+  25 / 25 /  18   |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+  26 / 26 /  19   |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+  27 / 27 /  20   |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+  28 / 28 /  21   |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+  29 / 29 /  22   |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+  30 / 30 /  23   |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+  31 / 31 /  24   |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+  32 / 32 /  25   |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+  33 / 33 /  26   |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+  34 / 34 /  27   |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+  35 / 35 /  28   |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+  36 / 36 /       |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+  37 / 37 /       |        |  vssd* |        | vccd*/vccd*/vccd* | USER_STD_INPUT_NOPULL 1 warnings/errors
+
+*** Detected the following warnings and/or errors: ***
+GPIO  5: Warning: missing user input connection
+GPIO  6: Warning: missing user input connection
+GPIO 19: Warning: missing user input connection
+GPIO 20: Warning: missing user input connection
+GPIO 21: Warning: missing user input connection
+GPIO 22: Warning: missing user input connection
+GPIO 23: Warning: missing user input connection
+GPIO 24: Warning: missing user input connection
+GPIO 25: Warning: missing user input connection
+GPIO 26: Warning: missing user input connection
+GPIO 27: Warning: missing user input connection
+GPIO 28: Warning: missing user input connection
+GPIO 29: Warning: missing user input connection
+GPIO 30: Warning: missing user input connection
+GPIO 31: Warning: missing user input connection
+GPIO 32: Warning: missing user input connection
+GPIO 33: Warning: missing user input connection
+GPIO 34: Warning: missing user input connection
+GPIO 35: Warning: missing user input connection
+GPIO 36: Warning: missing user input connection
+GPIO 37: Warning: missing user input connection
