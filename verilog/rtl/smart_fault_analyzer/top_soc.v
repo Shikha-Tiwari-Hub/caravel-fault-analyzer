@@ -32,6 +32,11 @@ module top_soc (
     input  [11:0] adc_data_in,
  
     // User maskable interrupt signals
+    output [127:0] la_data_out,
+    output [`MPRJ_IO_PADS-1:0] io_out,
+    output [`MPRJ_IO_PADS-1:0] io_oeb,
+
+// User maskable interrupt signals
     output [2:0]  user_irq
 );
  
@@ -94,5 +99,8 @@ module top_soc (
  
     // Route IRQ to Caravel user_irq
     assign user_irq = {2'b0, irq};
- 
+// Tie off all unused outputs inside macro
+    assign la_data_out = 128'b0;
+    assign io_out      = {`MPRJ_IO_PADS{1'b0}};
+    assign io_oeb      = {`MPRJ_IO_PADS{1'b1}};
 endmodule

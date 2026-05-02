@@ -17,6 +17,10 @@
     "ERROR_ON_SYNTH_CHECKS": false,
     "ERROR_ON_NL_ASSIGN_STATEMENTS": false,
     "TIMING_VIOLATION_CORNERS": [""],
+    "PL_RESIZER_HOLD_SLACK_MARGIN": 0.5,
+    "GRT_RESIZER_HOLD_SLACK_MARGIN": 0.3,
+    "PL_RESIZER_SETUP_SLACK_MARGIN": 0.1,
+    "GRT_RESIZER_SETUP_SLACK_MARGIN": 0.1,
     "MACROS": {
         "top_soc": {
             "gds": [

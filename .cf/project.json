@@ -41,5 +41,51 @@
       "36": "13'h0402",
       "37": "13'h0402"
     }
+  },
+  "precheck": {
+    "version": "1.1.0",
+    "timestamp": "2026-04-11T11:53:00.572077+00:00",
+    "pdk": "sky130A",
+    "passed": true,
+    "checks": {
+      "gpio_defines": {
+        "status": "pass",
+        "duration_s": 0.99
+      },
+      "xor": {
+        "status": "pass",
+        "duration_s": 6.03
+      },
+      "klayout_feol": {
+        "status": "pass",
+        "duration_s": 9.49
+      },
+      "klayout_beol": {
+        "status": "pass",
+        "duration_s": 17.59
+      },
+      "klayout_offgrid": {
+        "status": "pass",
+        "duration_s": 6.33
+      },
+      "klayout_met_min_ca_density": {
+        "status": "pass",
+        "duration_s": 3.55
+      },
+      "klayout_pin_label_purposes_overlapping_drawing": {
+        "status": "pass",
+        "duration_s": 3.05
+      },
+      "klayout_zeroarea": {
+        "status": "pass",
+        "duration_s": 2.45
+      },
+      "magic_drc": {
+        "status": "skip",
+        "duration_s": 0,
+        "reason": "optional (use --magic-drc to include)"
+      }
+    },
+    "input_file_hash": "177c56c3147dc5c2cf252fec6852daa1bc74699c"
   }
 }

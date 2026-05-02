@@ -97,8 +97,11 @@ module user_project_wrapper #(
         .wbs_ack_o  (wbs_ack_o),
         .wbs_dat_o  (wbs_dat_o),
 
-        // ADC input from GPIO pads io_in[11:0]
-        .adc_data_in (io_in[11:0]),
+        // ADC input from GPIO pads io_in[18:7]
+        .adc_data_in (io_in[18:7]),
+        .la_data_out (la_data_out),
+        .io_out      (io_out),
+        .io_oeb      (io_oeb),
 
         // Interrupt output
         .user_irq   (user_irq)

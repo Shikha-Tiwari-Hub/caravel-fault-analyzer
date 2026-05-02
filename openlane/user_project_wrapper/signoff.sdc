@@ -22,6 +22,7 @@ if {[info exists ::env(CLOCK_PORT)] && $::env(CLOCK_PORT) != ""} {
 	create_clock -name clk -period $::env(CLOCK_PERIOD)
 	puts "\[INFO\]: Creating virtual clock with period: $::env(CLOCK_PERIOD)"
 }
+
 if { ![info exists ::env(SYNTH_CLK_DRIVING_CELL)] } {
 	set ::env(SYNTH_CLK_DRIVING_CELL) $::env(SYNTH_DRIVING_CELL)
 }
