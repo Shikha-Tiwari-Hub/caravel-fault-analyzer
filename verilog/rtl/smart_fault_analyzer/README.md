@@ -89,7 +89,7 @@ gtkwave tb_top_soc_rtl.vcd
 | TEST 4 | Undervoltage fault | 200 < LOW_TH=500 | IRQ=1 | PASS |
 | TEST 5 | Spike detection | 1000->2000 ( ^t=1000) | IRQ=1 | PASS |
 
-### Build & Run
+### 👉 Build & Run
 **Run Simulation**
 ```bash
 iverilog -g2012 -DFUNCTIONAL -DUSE_POWER_PINS -DUNIT_DELAY=#1 -o sim_gl \
@@ -116,41 +116,44 @@ gtkwave tb_top_soc_gl.vcd
 ### GPIO Mapping
 | GPIO Pin | Direction | Signal | Description |
 |---|---|---|---|
-| `io_in[0]` | Input | `adc_data_in[0]` | ADC bit 0 (LSB) |
-| `io_in[1]` | Input | `adc_data_in[1]` | ADC bit 1 |
-| `io_in[2]` | Input | `adc_data_in[2]` | ADC bit 2 |
-| `io_in[3]` | Input | `adc_data_in[3]` | ADC bit 3 |
-| `io_in[4]` | Input | `adc_data_in[4]` | ADC bit 4 |
-| `io_in[5]` | Input | `adc_data_in[5]` | ADC bit 5 |
-| `io_in[6]` | Input | `adc_data_in[6]` | ADC bit 6 |
-| `io_in[7]` | Input | `adc_data_in[7]` | ADC bit 7 |
-| `io_in[8]` | Input | `adc_data_in[8]` | ADC bit 8 |
-| `io_in[9]` | Input | `adc_data_in[9]` | ADC bit 9 |
-| `io_in[10]` | Input | `adc_data_in[10]` | ADC bit 10 |
-| `io_in[11]` | Input | `adc_data_in[11]` | ADC bit 11 (MSB) |
-| `io_in[12:37]` | Input | Unused | Pulled low |
+| `io_in[7]`  | Input | `adc_data_in[0]`  | ADC bit 0 (LSB) |
+| `io_in[8]`  | Input | `adc_data_in[1]`  | ADC bit 1 |
+| `io_in[9]`  | Input | `adc_data_in[2]`  | ADC bit 2 |
+| `io_in[10]` | Input | `adc_data_in[3]`  | ADC bit 3 |
+| `io_in[11]` | Input | `adc_data_in[4]`  | ADC bit 4 |
+| `io_in[12]` | Input | `adc_data_in[5]`  | ADC bit 5 |
+| `io_in[13]` | Input | `adc_data_in[6]`  | ADC bit 6 |
+| `io_in[14]` | Input | `adc_data_in[7]`  | ADC bit 7 |
+| `io_in[15]` | Input | `adc_data_in[8]`  | ADC bit 8 |
+| `io_in[16]` | Input | `adc_data_in[9]`  | ADC bit 9 |
+| `io_in[17]` | Input | `adc_data_in[10]` | ADC bit 10 |
+| `io_in[18]` | Input | `adc_data_in[11]` | ADC bit 11 (MSB) |
+| `io_in[0:6]` | Reserved | Caravel / UART / Management | Reserved system GPIOs |
+| `io_in[19:37]` | Input | Unused | Unused GPIOs configured safely |
 
+---
 ### GPIO Configuration
 All GPIO pins configured as `GPIO_MODE: INPUT NOPULL` (user-controlled inputs, no pull resistor).
 ### Wishbone Interface
 | Signal | Width | Direction | Description |
 |---|---|---|---|
-| `wb_clk_i` | 1 | Input | System clock (25 MHz) |
+| `wb_clk_i` | 1 | Input | System clock |
 | `wb_rst_i` | 1 | Input | Active-high reset |
-| `wbs_cyc_i` | 1 | Input | WB cycle valid |
-| `wbs_stb_i` | 1 | Input | WB strobe |
-| `wbs_we_i` | 1 | Input | Write enable |
-| `wbs_sel_i` | 4 | Input | Byte select |
-| `wbs_adr_i` | 32 | Input | Address |
-| `wbs_dat_i` | 32 | Input | Write data |
-| `wbs_ack_o` | 1 | Output | Acknowledge |
-| `wbs_dat_o` | 32 | Output | Read data |
+| `wbs_cyc_i` | 1 | Input | Wishbone cycle valid |
+| `wbs_stb_i` | 1 | Input | Wishbone strobe |
+| `wbs_we_i` | 1 | Input | Wishbone write enable |
+| `wbs_sel_i` | 4 | Input | Byte select lines |
+| `wbs_adr_i` | 32 | Input | Wishbone address bus |
+| `wbs_dat_i` | 32 | Input | Wishbone write data |
+| `wbs_ack_o` | 1 | Output | Wishbone acknowledge |
+| `wbs_dat_o` | 32 | Output | Wishbone read data |
 
 ### Interrupt
-| Signal | Description |
-|---|---|
-| `user_irq[0]` | Fault detected IRQ (active high, latched) |
-| `user_irq[1:2]` | Reserved (tied low) |
+| Signal | Direction | Description |
+|---|---|---|
+| `user_irq[0]` | Output | Fault detected interrupt request (active high, latched) |
+| `user_irq[1]` | Output | Reserved / tied low |
+| `user_irq[2]` | Output | Reserved / tied low |
 
 ---
 ## 🗂️ Register Map
@@ -167,5 +170,13 @@ Base Address: `0x30000000`
 ---
 ## 6. GDS Layout
 ### Smart fault analyzer : top_soc
+#### Top SoC Physical Metrics (`top_soc`)
+| Metric | Value |
+|---|---|
+| Die Area | 90,000 µm² (~0.09 mm²) |
+| Core Area | 80,146.9 µm² |
+| Standard Cell Area | 9,058.69 µm² |
+| Core Utilization | 11.3% |
+
   <img src="docs/top_soc_gds.jpeg" width="700"/>
 
