@@ -16,14 +16,18 @@ ASIC-Ready | OpenLane | Sky130
 </div>
 
 ### Project Information
-**Project:** Smart Power Fault Analyzer (SPFA)  
-**Target Application:** Electric Vehicle Battery Management System (EV-BMS) Safety Monitoring  
-**Technology Platform:** Efabless Caravel SoC Harness 
-**Target Frequency:** 40 MHz
-**PDK:** SkyWater 130nm (Sky130A) Open-Source PDK  
-**Design Flow:** OpenLane chipIgnite flow  
-**Language:** Verilog HDL  
-**Verification:** Cocotb / Icarus Verilog  
+- **Project:** Smart Power Fault Analyzer (SPFA)  
+- **Target Application:** Electric Vehicle Battery Management System (EV-BMS) Safety Monitoring
+- **Technology Platform:** Efabless Caravel SoC Harness 
+- **Target Frequency:** 40 MHz
+- **PDK:** SkyWater 130nm (Sky130A) Open-Source PDK
+- **Estimated Wrapper Area:**  10.28 mm²
+- **Design Flow:** OpenLane chipIgnite flow  
+- **Language:** Verilog HDL  
+- **Verification:** Cocotb / Icarus Verilog
+- **Integration Bus:** Wishbone Interface 
+- **Interrupt Support:** Maskable IRQ Generation 
+- **GPIO Usage:**  12-bit External ADC Input Interface 
 
 ## Table of Contents
 - [Problem Statement](#1-problem-statement)
@@ -35,7 +39,8 @@ ASIC-Ready | OpenLane | Sky130
 - [Verification Results](#7-verification-results)
 - [Static Timing Analysis (STA)](#8-static-timing-analysis-sta)
 - [Local Precheck](#9-local-precheck)
-- [Quick Start](#10-quick-start)
+- [Remote Precheck Status](#10-remote-precheck-status)
+- [Quick Start](#11-quick-start)
 - [Documentation & Resources](#documentation--resources)
 - [Project Structure](#project-structure)
 - [License](#license)
@@ -156,13 +161,21 @@ and receives **digitized voltage inputs** through the **GPIO interface**.
 
 <img src="verilog/rtl/smart_fault_analyzer/docs/Caravel_harness_block_diagram.png" width="800"/>
 
+#### Wrapper Physical Metrics (`user_project_wrapper`)
+| Metric | Value |
+|---|---|
+| Die Area | 10,278,400 µm² |
+| Core Area | 10,174,000 µm² |
+| Macro Area | 90,000 µm² |
+| Core Utilization | 0.88% |
+
 ### Integration Overview
 The SPFA module connects to the Caravel system through three primary interfaces:
 
 | Interface | Signal | Description |
 |----------|--------|-------------|
 | Wishbone | wb_* | Configuration and status register access |
-| GPIO Input | io_in[11:0] | Digitized voltage from external ADC |
+| GPIO Input | io_in[18:7] | Digitized voltage from external ADC |
 | Interrupt | user_irq[0] | Fault detection notification to CPU |
 | Clock | wb_clk_i | System clock |
 | Reset | wb_rst_i | Global reset |
@@ -177,7 +190,7 @@ cycle, enabling deterministic fault response for safety-critical systems.
 ### 👉 Integration Details
 - **Bus Interface:** Wishbone slave connected to Caravel management SoC  
 - **Control Path:** CPU configures thresholds via memory-mapped registers  
-- **Data Path:** ADC input (`io_in[11:0]`) processed in real-time  
+- **Data Path:** ADC input (`io_in[18:7]`) processed in real-time  
 - **Interrupt Handling:** Fault events trigger `user_irq[0]`  
 <img src="verilog/rtl/smart_fault_analyzer/docs/user_project_wrapper_gds1.jpeg" width="500"/>
 
@@ -311,7 +324,23 @@ cf precheck
 <img width="500" height="400" alt="precheck" src="https://github.com/user-attachments/assets/51e9ffa1-7d48-4ffa-8958-4d1faa1d59fa" />
 
 ---
-## 10. Quick Start
+## 10. Remote Precheck Status
+| Checks | Passed | Failed | Runtime |
+|:------:|:------:|:------:|:------:|
+| 14 | 14 ✅ | 0 ✅ | 80.8s |
+
+### Remote Precheck Summary
+- ✅ All mandatory remote precheck validations passed
+- ✅ Zero blocking errors
+- ✅ GPIO/OEB configuration verified
+- ✅ SKY130 tapeout flow compatible
+- ⚠ Non-blocking warnings only for unused GPIO inputs
+
+### Remote Precheck Result
+<img width="800" height="400" alt="precheck_chipfoundary" src="https://github.com/user-attachments/assets/68649d3a-a9f0-454d-b7a2-81dbb86f0609" />
+
+---
+## 11. Quick Start
 ### 1. Repository Setup
 Create a new repository based on the **caravel_fault_analyzer template** and clone it to your local machine:
 ```bash
